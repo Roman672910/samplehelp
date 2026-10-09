@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SampleHelp — концепты логотипа</title>
+<style>
+  :root {
+    --bg: #0d0d0f; --card: #161619; --input: #222226;
+    --text: #e8e8ea; --muted: #9a9aa0; --dim: #6b6b72;
+    --c1: #b87333; --c2: #cd7f32; --c3: #ff8c00;
+    --border: rgba(184,115,51,.18); --active: rgba(255,140,0,.5);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif; padding:36px 20px 60px; }
+  h1 { font-size:24px; letter-spacing:-.02em; text-align:center; }
+  h1 em { font-style:normal; background:linear-gradient(135deg,var(--c1),var(--c2),var(--c3)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .sub { text-align:center; color:var(--muted); font-size:14px; margin:8px auto 34px; max-width:640px; line-height:1.6; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; max-width:1100px; margin:0 auto; }
+  .concept { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; transition:all .22s; }
+  .concept:hover { border-color:var(--active); box-shadow:0 0 12px rgba(255,140,0,.35); transform:translateY(-2px); }
+  .letter { font-family:'Courier New',monospace; font-size:11px; letter-spacing:.14em; color:var(--c3); text-transform:uppercase; }
+  .cname { font-size:17px; font-weight:700; margin:4px 0 2px; }
+  .cdesc { font-size:12.5px; color:var(--muted); line-height:1.55; min-height:58px; }
+  .big { display:flex; justify-content:center; padding:18px 0 14px; }
+  .big svg { width:104px; height:104px; filter:drop-shadow(0 0 14px rgba(255,140,0,.35)); }
+  .mock { background:var(--input); border:1px solid var(--border); border-radius:10px; padding:9px 14px; display:flex; align-items:center; gap:9px; }
+  .mock svg { width:26px; height:26px; flex-shrink:0; }
+  .mock .wm { font-size:17px; font-weight:700; letter-spacing:-.02em; }
+  .mock .wm em { font-style:normal; background:linear-gradient(135deg,var(--c1),var(--c2),var(--c3)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .sizes { display:flex; align-items:center; gap:14px; margin-top:12px; color:var(--dim); font-family:'Courier New',monospace; font-size:10.5px; }
+  .sizes .box { display:flex; align-items:center; gap:6px; background:var(--input); border:1px solid var(--border); border-radius:8px; padding:6px 9px; }
+  .note { text-align:center; color:var(--dim); font-size:12px; margin-top:30px; line-height:1.7; max-width:640px; margin-left:auto; margin-right:auto; }
+</style>
+</head>
+<body>
+<h1>🎛️ Sample<em>Help</em> — концепты логотипа</h1>
+<p class="sub">Четыре векторных концепта в фирменной меди. Каждый показан крупно, в шапке сайта и в размерах фавиконки (32/16px). Выберите букву — и концепт появится в приложении.</p>
+
+<div class="grid">
+
+  <!-- ============ A ============ -->
+  <div class="concept">
+    <span class="letter">Концепт A</span>
+    <div class="cname">«Сэмплированный вопрос»</div>
+    <p class="cdesc">Знак вопроса, собранный из отдельных штрихов-«сэмплов»: суть платформы — вопрос о звуке, разложенный на семплы. Точка — медная капля.</p>
+    <div class="big">
+      <svg viewBox="0 0 48 48"><defs><linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b87333"/><stop offset=".5" stop-color="#cd7f32"/><stop offset="1" stop-color="#ff8c00"/></linearGradient></defs>
+        <path d="M15 16.5a9.5 9.5 0 1 1 13.6 8.7c-3.1 1.7-4.3 3.3-4.4 6.6" fill="none" stroke="url(#ga)" stroke-width="5" stroke-linecap="round" stroke-dasharray="3.6 4.2"/>
+        <circle cx="24.2" cy="40" r="3.6" fill="url(#ga)"/>
+      </svg>
+    </div>
+    <div class="mock">
+      <svg viewBox="0 0 48 48"><path d="M15 16.5a9.5 9.5 0 1 1 13.6 8.7c-3.1 1.7-4.3 3.3-4.4 6.6" fill="none" stroke="url(#ga)" stroke-width="5" stroke-linecap="round" stroke-dasharray="3.6 4.2"/><circle cx="24.2" cy="40" r="3.6" fill="url(#ga)"/></svg>
+      <span class="wm">Sample<em>Help</em></span>
+    </div>
+    <div class="sizes">
+      <span class="box"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M15 16.5a9.5 9.5 0 1 1 13.6 8.7c-3.1 1.7-4.3 3.3-4.4 6.6" fill="none" stroke="url(#ga)" stroke-width="5" stroke-linecap="round" stroke-dasharray="3.6 4.2"/><circle cx="24.2" cy="40" r="3.6" fill="url(#ga)"/></svg>32</span>
+      <span class="box"><svg viewBox="0 0 48 48" width="16" height="16"><path d="M15 16.5a9.5 9.5 0 1 1 13.6 8.7c-3.1 1.7-4.3 3.3-4.4 6.6" fill="none" stroke="url(#ga)" stroke-width="6" stroke-linecap="round" stroke-dasharray="4 4.4"/><circle cx="24.2" cy="40" r="4.4" fill="url(#ga)"/></svg>16</span>
+      фавиконка
+    </div>
+  </div>
+
+  <!-- ============ B ============ -->
+  <div class="concept">
+    <span class="letter">Концепт B</span>
+    <div class="cname">«Ручка синтезатора»</div>
+    <p class="cdesc">Кноп-ручка синтеза: шкала с рисками, медный указатель на «максимум». Символ ремесла саунд-дизайнера — крутить ручки, пока не получится тот самый звук.</p>
+    <div class="big">
+      <svg viewBox="0 0 48 48"><defs><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b87333"/><stop offset=".5" stop-color="#cd7f32"/><stop offset="1" stop-color="#ff8c00"/></linearGradient></defs>
+        <circle cx="24" cy="24" r="15.5" fill="none" stroke="url(#gb)" stroke-width="3"/>
+        <g stroke="url(#gb)" stroke-width="2.4" stroke-linecap="round">
+          <path d="M8.5 30.5l3.2-1.2M10.5 17l3 1.6M17 8.5l1.6 3M31 8.5l-1.6 3M37.5 17l-3 1.6M39.5 30.5l-3.2-1.2"/>
+        </g>
+        <path d="M24 24L32 14.5" stroke="url(#gb)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="3.2" fill="url(#gb)"/>
+      </svg>
+    </div>
+    <div class="mock">
+      <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="15.5" fill="none" stroke="url(#gb)" stroke-width="3"/><g stroke="url(#gb)" stroke-width="2.4" stroke-linecap="round"><path d="M8.5 30.5l3.2-1.2M10.5 17l3 1.6M17 8.5l1.6 3M31 8.5l-1.6 3M37.5 17l-3 1.6M39.5 30.5l-3.2-1.2"/></g><path d="M24 24L32 14.5" stroke="url(#gb)" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="24" r="3.2" fill="url(#gb)"/></svg>
+      <span class="wm">Sample<em>Help</em></span>
+    </div>
+    <div class="sizes">
+      <span class="box"><svg viewBox="0 0 48 48" width="32" height="32"><circle cx="24" cy="24" r="15.5" fill="none" stroke="url(#gb)" stroke-width="3.4"/><g stroke="url(#gb)" stroke-width="2.8" stroke-linecap="round"><path d="M8.5 30.5l3.2-1.2M10.5 17l3 1.6M17 8.5l1.6 3M31 8.5l-1.6 3M37.5 17l-3 1.6M39.5 30.5l-3.2-1.2"/></g><path d="M24 24L32 14.5" stroke="url(#gb)" stroke-width="4.4" stroke-linecap="round"/><circle cx="24" cy="24" r="3.4" fill="url(#gb)"/></svg>32</span>
+      <span class="box"><svg viewBox="0 0 48 48" width="16" height="16"><circle cx="24" cy="24" r="15" fill="none" stroke="url(#gb)" stroke-width="5"/><path d="M24 24L32 14.5" stroke="url(#gb)" stroke-width="7" stroke-linecap="round"/><circle cx="24" cy="24" r="4.5" fill="url(#gb)"/></svg>16</span>
+      фавиконка
+    </div>
+  </div>
+
+  <!-- ============ C ============ -->
+  <div class="concept">
+    <span class="letter">Концепт C</span>
+    <div class="cname">«Джек 6.35»</div>
+    <p class="cdesc">Аудио-штекер, из кабеля которого рождается волна: «воткни звук в сообщество». Профессиональный код, понятный каждому, кто держал патч-кабель.</p>
+    <div class="big">
+      <svg viewBox="0 0 48 48"><defs><linearGradient id="gc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b87333"/><stop offset=".5" stop-color="#cd7f32"/><stop offset="1" stop-color="#ff8c00"/></linearGradient></defs>
+        <path d="M42 14l-5.5-5.5-3.5 3.5 5.5 5.5z" fill="url(#gc)"/>
+        <path d="M31.5 13.5l4.5 4.5-2.6 2.6-4.5-4.5z" fill="url(#gc)" opacity=".85"/>
+        <path d="M27.4 17.6l4.5 4.5-2.6 2.6-4.5-4.5z" fill="url(#gc)" opacity=".7"/>
+        <rect x="14" y="18.6" width="12" height="9" rx="3" transform="rotate(45 20 23.1)" fill="url(#gc)"/>
+        <path d="M15.5 28.5c-3 3-6.5 1-9 3.5" fill="none" stroke="url(#gc)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M4 36c2.5 0 2.5 4 5 4s2.5-4 5-4 2.5 4 5 4 2.5-4 5-4" fill="none" stroke="url(#gc)" stroke-width="2.6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="mock">
+      <svg viewBox="0 0 48 48"><path d="M42 14l-5.5-5.5-3.5 3.5 5.5 5.5z" fill="url(#gc)"/><path d="M31.5 13.5l4.5 4.5-2.6 2.6-4.5-4.5z" fill="url(#gc)" opacity=".85"/><path d="M27.4 17.6l4.5 4.5-2.6 2.6-4.5-4.5z" fill="url(#gc)" opacity=".7"/><rect x="14" y="18.6" width="12" height="9" rx="3" transform="rotate(45 20 23.1)" fill="url(#gc)"/><path d="M15.5 28.5c-3 3-6.5 1-9 3.5" fill="none" stroke="url(#gc)" stroke-width="3" stroke-linecap="round"/><path d="M4 36c2.5 0 2.5 4 5 4s2.5-4 5-4 2.5 4 5 4 2.5-4 5-4" fill="none" stroke="url(#gc)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span class="wm">Sample<em>Help</em></span>
+    </div>
+    <div class="sizes">
+      <span class="box"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M42 14l-5.5-5.5-3.5 3.5 5.5 5.5z" fill="url(#gc)"/><path d="M31.5 13.5l4.5 4.5-2.6 2.6-4.5-4.5z" fill="url(#gc)" opacity=".85"/><rect x="14" y="18.6" width="12" height="9" rx="3" transform="rotate(45 20 23.1)" fill="url(#gc)"/><path d="M4 36c2.5 0 2.5 4 5 4s2.5-4 5-4 2.5 4 5 4 2.5-4 5-4" fill="none" stroke="url(#gc)" stroke-width="3" stroke-linecap="round"/></svg>32</span>
+      <span class="box"><svg viewBox="0 0 48 48" width="16" height="16"><path d="M42 14l-5.5-5.5-3.5 3.5 5.5 5.5z" fill="url(#gc)"/><rect x="14" y="18.6" width="12" height="9" rx="3" transform="rotate(45 20 23.1)" fill="url(#gc)"/><path d="M4 36c2.5 0 2.5 4 5 4s2.5-4 5-4 2.5 4 5 4 2.5-4 5-4" fill="none" stroke="url(#gc)" stroke-width="4" stroke-linecap="round"/></svg>16</span>
+      фавиконка
+    </div>
+  </div>
+
+  <!-- ============ D ============ -->
+  <div class="concept">
+    <span class="letter">Концепт D</span>
+    <div class="cname">«Семпл под линзой»</div>
+    <p class="cdesc">Медное кольцо-«лупа» с живой вейвформой внутри: сообщество разглядывает присланный семпл, чтобы разгадать его. Минимализм + суть продукта.</p>
+    <div class="big">
+      <svg viewBox="0 0 48 48"><defs><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b87333"/><stop offset=".5" stop-color="#cd7f32"/><stop offset="1" stop-color="#ff8c00"/></linearGradient>
+        <clipPath id="cd"><circle cx="24" cy="24" r="15"/></clipPath></defs>
+        <circle cx="24" cy="24" r="16.5" fill="none" stroke="url(#gd)" stroke-width="3"/>
+        <g clip-path="url(#cd)">
+          <path d="M6 24h5l3-8 4.5 16 4.5-12 3 6.5 2-2.5h14" fill="none" stroke="url(#gd)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+    </div>
+    <div class="mock">
+      <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16.5" fill="none" stroke="url(#gd)" stroke-width="3"/><g clip-path="url(#cd)"><path d="M6 24h5l3-8 4.5 16 4.5-12 3 6.5 2-2.5h14" fill="none" stroke="url(#gd)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+      <span class="wm">Sample<em>Help</em></span>
+    </div>
+    <div class="sizes">
+      <span class="box"><svg viewBox="0 0 48 48" width="32" height="32"><circle cx="24" cy="24" r="16.5" fill="none" stroke="url(#gd)" stroke-width="3.4"/><g clip-path="url(#cd)"><path d="M6 24h5l3-8 4.5 16 4.5-12 3 6.5 2-2.5h14" fill="none" stroke="url(#gd)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>32</span>
+      <span class="box"><svg viewBox="0 0 48 48" width="16" height="16"><circle cx="24" cy="24" r="16" fill="none" stroke="url(#gd)" stroke-width="5"/><g clip-path="url(#cd)"><path d="M6 24h5l3-8 4.5 16 4.5-12 3 6.5 2-2.5h14" fill="none" stroke="url(#gd)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></svg>16</span>
+      фавиконка
+    </div>
+  </div>
+
+</div>
+
+<p class="note">
+  Все концепты — inline-SVG: красятся медным градиентом из дизайн-системы, весят ~0.5 КБ, не теряют чёткость ни на каком экране и работают офлайн.<br>
+  Выберите букву (A / B / C / D) — заменю эмодзи в шапке, фавиконку и логотип в README на выбранный символ.<br>
+  Можно также скомбинировать: «символ B + пунктир из A» или предложить своё описание.
+</p>
+</body>
+</html>

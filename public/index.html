@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SampleHelp — Q&A-платформа для саунд-дизайнеров: загружай аудио-пример и узнай, как воссоздать звук в Serum, Phase Plant, Vital" />
+  <title>SampleHelp — как сделать такой звук?</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23b87333'/%3E%3Cstop offset='.5' stop-color='%23cd7f32'/%3E%3Cstop offset='1' stop-color='%23ff8c00'/%3E%3C/linearGradient%3E%3CclipPath id='c'%3E%3Ccircle cx='24' cy='24' r='15'/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle cx='24' cy='24' r='17' fill='none' stroke='url(%23g)' stroke-width='4'/%3E%3Cg clip-path='url(%23c)'%3E%3Cpath d='M6 24h5l3-8 4.5 16 4.5-12 3 6.5 2-2.5h14' fill='none' stroke='url(%23g)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip-link" href="#app" data-i18n="common.skip_to_content">Перейти к содержимому</a>
+
+  <!-- ========== ШАПКА ========== -->
+  <header class="app-header">
+    <div class="header-inner">
+      <a href="/" class="logo" data-route aria-label="SampleHelp — на главную">
+        <span class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="27" height="27"><defs><linearGradient id="sh-logo-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b87333"/><stop offset=".5" stop-color="#cd7f32"/><stop offset="1" stop-color="#ff8c00"/></linearGradient><clipPath id="sh-logo-clip"><circle cx="24" cy="24" r="15"/></clipPath></defs><circle cx="24" cy="24" r="16.5" fill="none" stroke="url(#sh-logo-grad)" stroke-width="3.4"/><g clip-path="url(#sh-logo-clip)"><path d="M6 24h5l3-8 4.5 16 4.5-12 3 6.5 2-2.5h14" fill="none" stroke="url(#sh-logo-grad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+        </span>
+        <span class="logo-text">Sample<em>Help</em></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="/" data-route class="nav-icon" aria-label="Лента" title="Лента" data-i18n-aria="nav.feed" data-i18n-title="nav.feed">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="/favorites" data-route class="nav-icon" aria-label="Избранное" title="Избранное" data-i18n-aria="nav.favorites" data-i18n-title="nav.favorites">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.7 6.3.8-4.6 4.3 1.2 6.2L12 17l-5.6 3 1.2-6.2L3 9.5l6.3-.8L12 3z"/></svg>
+        </a>
+        <a href="/messages" data-route class="nav-icon" aria-label="Сообщения" title="Сообщения" data-i18n-aria="nav.messages" data-i18n-title="nav.messages">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H4l2-3.5A8 8 0 1 1 21 12z"/></svg>
+          <!-- Счётчик непрочитанных личных сообщений (новые сообщения — здесь, не в колокольчике) -->
+          <span class="notif-badge" id="msg-count" hidden>0</span>
+        </a>
+        <!-- Колокольчик уведомлений (иконка, для авторизованных) -->
+        <button type="button" id="notif-bell" class="nav-icon icon-button" aria-label="Уведомления" title="Уведомления" data-i18n-aria="notifications.title" data-i18n-title="notifications.title" aria-haspopup="true" aria-expanded="false" hidden>
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          <span class="notif-badge" id="notif-count" hidden>0</span>
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Язык интерфейса переехал в «Настройки профиля» (модалка на странице профиля) -->
+
+        <!-- Зона авторизации -->
+        <div id="auth-area" class="auth-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== КОНТЕНТ (экраны рендерятся роутером) ========== -->
+  <main id="app" class="app-main" tabindex="-1"></main>
+
+  <!-- ========== ПОДВАЛ ========== -->
+  <footer class="app-footer">
+    <p>
+      <svg viewBox="0 0 48 48" width="15" height="15" style="vertical-align:-2px" aria-hidden="true"><defs><linearGradient id="sh-logo-grad-f" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b87333"/><stop offset=".5" stop-color="#cd7f32"/><stop offset="1" stop-color="#ff8c00"/></linearGradient><clipPath id="sh-logo-clip-f"><circle cx="24" cy="24" r="15"/></clipPath></defs><circle cx="24" cy="24" r="16.5" fill="none" stroke="url(#sh-logo-grad-f)" stroke-width="3.4"/><g clip-path="url(#sh-logo-clip-f)"><path d="M6 24h5l3-8 4.5 16 4.5-12 3 6.5 2-2.5h14" fill="none" stroke="url(#sh-logo-grad-f)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+      SampleHelp — <span data-i18n="footer.tagline">сообщество саунд-дизайнеров</span>
+    </p>
+    <p style="margin-top:8px">
+      <button type="button" class="footer-support" id="btn-support-project">
+        ☕ <span data-i18n="support.footer_btn">Поддержать проект</span>
+      </button>
+    </p>
+    <p class="footer-muted" id="demo-indicator"></p>
+  </footer>
+
+  <!-- Панель уведомлений: живёт вне шапки (position: fixed), при открытии
+       JS ставит её ровно под колокольчиком #notif-bell -->
+  <div id="notif-panel" class="notif-panel" hidden></div>
+
+  <!-- Тосты и модальные окна -->
+  <div id="toast-container" class="toast-container" role="status" aria-live="polite"></div>
+  <div id="modal-root"></div>
+
+  <!-- Supabase SDK: локальный бандл (не зависит от интернета/CDN).
+       Загружается до модулей, создаёт window.supabase -->
+  <script src="/vendor/supabase.js" defer onerror="console.warn('[SampleHelp] локальный Supabase SDK не загрузился — будет попытка через CDN')"></script>
+  <script type="module" src="/js/main.mjs"></script>
+</body>
+</html>

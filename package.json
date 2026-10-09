@@ -1,0 +1,26 @@
+{
+  "name": "samplehelp",
+  "version": "1.0.0",
+  "description": "Q&A-\u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0430 \u0434\u043b\u044f \u0441\u0430\u0443\u043d\u0434-\u0434\u0438\u0437\u0430\u0439\u043d\u0435\u0440\u043e\u0432 \u0438 \u0441\u0438\u043d\u0442\u0435\u0437\u0430\u0442\u043e\u0440\u0449\u0438\u043a\u043e\u0432",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "check": "node scripts/check-imports.cjs"
+  },
+  "keywords": [
+    "sound-design",
+    "synthesizers",
+    "qa",
+    "audio"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
