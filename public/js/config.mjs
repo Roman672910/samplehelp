@@ -22,7 +22,7 @@ export const CONFIG = {
   //   URL: https://jcyhybmlpcvmaccpvomi.supabase.co
   //   KEY: sb_publishable_BoLrqyzewJf2gO1Y8t5-_w_aKrkA8Ys
   SUPABASE_URL: 'https://jcyhybmlpcvmaccpvomi.supabase.co',
-  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjeWh5Ym1scGN2bWFjY3B2b21pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyOTc5NjIsImV4cCI6MjEwNjg3Mzk2Mn0.TPh_b_Yt33ktmzzN1klDh-n5RVCfyeml04vbP7FJVj0',
+  SUPABASE_ANON_KEY: 'sb_publishable_BoLrqyzewJf2gO1Y8t5-_w_aKrkA8Ys',
 
   // ---- i18n ----
   LOCALES: ['ru', 'en', 'de'],
