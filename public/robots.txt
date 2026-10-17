@@ -1,0 +1,15 @@
+# SampleHelp — SPA (History API): все маршруты отдаёт index.html (SPA-fallback).
+# Домен — PLACEHOLDER (samplehelp.example): заменить на реальный на Этапе 4
+# (SCALE_PLAN), заодно в index.html (og:url/canonical) и sitemap.xml.
+# Служебные и приватные разделы закрыты от краулеров; профили и вопросы открыты.
+User-agent: *
+Allow: /
+Disallow: /ask
+Disallow: /favorites
+Disallow: /messages
+Disallow: /moderation
+Disallow: /marketplace
+Disallow: /premium
+Disallow: /affiliate
+
+Sitemap: https://samplehelp.example/sitemap.xml

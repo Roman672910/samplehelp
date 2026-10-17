@@ -1,0 +1,929 @@
+{
+  "common": {
+    "skip_to_content": "Zum Inhalt springen",
+    "next": "Weiter",
+    "back": "Zurück",
+    "save": "Speichern",
+    "saved": "Gespeichert ✓",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "send": "Senden",
+    "share": "Teilen",
+    "add": "Hinzufügen",
+    "link_copied": "Link kopiert",
+    "online": "online",
+    "solved_by": "gelöst von",
+    "edit": "Bearbeiten",
+    "edited_mark": "bearbeitet",
+    "deleted": "Gelöscht",
+    "day_short": "T"
+  },
+  "fmt": {
+    "bold": "Fett (**Text**)",
+    "italic": "Kursiv (*Text*)",
+    "code": "Code (`Text`)",
+    "quote": "Zitat (> Text)",
+    "list": "Liste (- Punkt)",
+    "hint": "Unterstützt: **fett**, *kursiv*, `Code`, ```Codeblock```, > Zitat, - Liste"
+  },
+  "footer": {
+    "tagline": "die Sound-Design-Community"
+  },
+  "nav": {
+    "feed": "Feed",
+    "favorites": "Favoriten",
+    "messages": "Nachrichten",
+    "profile": "Profil",
+    "moderation": "Moderation",
+    "login": "Anmelden",
+    "signup": "Registrieren",
+    "logout": "Abmelden",
+    "ask": "Frage stellen"
+  },
+  "auth": {
+    "login_title": "Bei SampleHelp anmelden",
+    "signup_title": "Konto erstellen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "username": "Benutzername",
+    "login_btn": "Anmelden",
+    "signup_btn": "Konto erstellen",
+    "forgot_password": "Passwort vergessen?",
+    "or_email": "oder per E-Mail",
+    "no_account": "Noch kein Konto?",
+    "has_account": "Bereits ein Konto?",
+    "enter_email_first": "Gib zuerst deine E-Mail im Feld oben ein",
+    "reset_sent": "E-Mail zum Zurücksetzen gesendet",
+    "welcome": "Willkommen",
+    "logged_out": "Du wurdest abgemeldet",
+    "onboarding_title": "Richten wir dein Profil ein 🎛️",
+    "onboarding_about": "Erzähl von dir: was du machst, welche Sounds du gerne baust.",
+    "onboarding_bio_ph": "Sound-Designer. Liebe FM-Bässe und Ambient…",
+    "onboarding_daw": "In welcher DAW arbeitest du? Wähle beliebig viele.",
+    "onboarding_chips_hint": "Namen eingeben und Enter drücken",
+    "onboarding_skills": "Deine Fähigkeiten und Spezialisierungen (Tags).",
+    "onboarding_finish": "Fertig, ab zum Feed!",
+    "onboarding_done": "Profil aktualisiert 🚀",
+    "oauth_disabled": "Anmeldung über {provider} ist in den Supabase-Einstellungen nicht aktiviert (Authentication → Sign In / Providers). Nutze stattdessen E-Mail und Passwort.",
+    "confirm_email_required": "Fast fertig: Wir haben einen Bestätigungslink an deine E-Mail gesendet. Öffne ihn und melde dich erneut an. (Für lokale Entwicklung kannst du die Bestätigung deaktivieren: Supabase → Authentication → Sign In / Providers → Email → Confirm email = off)"
+  },
+  "feed": {
+    "title": "Fragen-Feed",
+    "subtitle": "Helft euch gegenseitig, Sounds nachzubauen",
+    "no_questions": "Noch keine Fragen — sei der Erste!",
+    "sort_aria": "Fragen sortieren",
+    "sort_new": "Neu",
+    "sort_popular": "Beliebt",
+    "sort_unanswered": "Ohne Antwort",
+    "status_open": "Offen",
+    "status_solved": "Gelöst",
+    "difficulty_beginner": "Anfänger",
+    "difficulty_intermediate": "Mittelstufe",
+    "difficulty_advanced": "Fortgeschrittene",
+    "play_preview": "Audio-Vorschau abspielen",
+    "answer_btn": "Antworten",
+    "no_answers_short": "keine Antworten",
+    "solved_in": "Gelöst · {time}"
+  },
+  "question": {
+    "not_found": "Frage nicht gefunden",
+    "answers": "Antworten",
+    "no_answers": "Noch keine Antworten — sei der Erste!",
+    "actions": "Aktionen",
+    "like": "Gefällt mir",
+    "likes": "Likes",
+    "stats": "Statistik",
+    "status": "Status",
+    "add_answer": "Deine Antwort",
+    "answer_placeholder": "Beschreibe die Technik: Oszillatoren, Modulation, Effekte…",
+    "links_label": "Links (Tutorials, Artikel, Presets)",
+    "upload_preset": "Preset hochladen",
+    "submit_answer": "Antwort veröffentlichen",
+    "answer_required": "Bitte schreibe deine Antwort",
+    "answer_posted": "Antwort veröffentlicht ✓",
+    "mark_solution": "Als Lösung markieren",
+    "solution": "Lösung",
+    "solution_marked": "Als Lösung markiert ✓",
+    "comments": "Kommentare",
+    "comment_placeholder": "Kommentar hinzufügen…",
+    "add_comment": "Kommentar hinzufügen",
+    "add_to_favorites": "Zu Favoriten",
+    "in_favorites": "In Favoriten",
+    "waveform_aria": "Wellenform des Audio-Beispiels",
+    "play": "Abspielen",
+    "pause": "Pause",
+    "marker_toggle_hint": "Ab dieser Stelle abspielen (erneut klicken für Pause)",
+    "download_preset": "Preset herunterladen",
+    "preset": "Preset",
+    "author_badge": "Fragesteller",
+    "ab_a": "Frage (Referenz)",
+    "ab_b": "Antwort",
+    "ab_compare": "Mit der Frage vergleichen",
+    "ab_hint": "Klick auf A oder B (oder Tasten A/B, Leertaste) — diese Seite abspielen/pausieren, immer vom Anfang",
+    "delete_confirm": "Diese Frage mit allen Antworten und Kommentaren löschen? Das kann nicht rückgängig gemacht werden.",
+    "comment_delete_confirm": "Diesen Kommentar löschen?",
+    "solved_banner": "Frage gelöst. Löschung in {time}",
+    "purge_soon": "Frage gelöst. Inhalt wird gleich gelöscht",
+    "unresolve": "Lösung zurücknehmen",
+    "unresolve_confirm": "Die Frage wird wieder offen: Antworten sind wieder möglich, der Lösch-Timer wird aufgehoben. Bereits vergebene Reputation bleibt erhalten. Fortfahren?",
+    "unresolved_toast": "Lösung zurückgenommen — Frage ist wieder offen",
+    "solution_unmarked": "Lösungsmarkierung entfernt",
+    "answers_closed": "Frage gelöst — keine neuen Antworten mehr möglich",
+    "fav_closed_hint": "Gelöste Fragen können nicht zu Favoriten hinzugefügt werden",
+    "solved_badge_hint": "Nach Ablauf des Timers wird der Inhalt der Frage gelöscht — eine Archivseite bleibt erhalten",
+    "purged_title": "Frage gelöst und archiviert",
+    "purged_solved_on": "Gelöst am {date}",
+    "answers_n": [
+      "{n} Antwort",
+      "{n} Antworten"
+    ],
+    "purged_best_label": "beste Antwort —",
+    "purged_best_rep": "+{rep} Rep.",
+    "purged_note": "Sieben Tage nach der Lösungsmarkierung wurden Frage, Antworten, Kommentare und Audiodateien gelöscht. Bewertungen und Statistiken bleiben für immer erhalten. Alte Links führen auf diese Seite.",
+    "comment_links_banned": "Links sind in Kommentaren nicht erlaubt — füge sie über das 🔗-Widget einer Antwort hinzu"
+  },
+  "answer": {
+    "sound_type": "Was ist das für ein Sound?",
+    "difficulty": "Schwierigkeit des Nachbaus",
+    "tags": "Tags",
+    "tags_ph": "DnB, Growl, Ambient (mit Komma getrennt)",
+    "audio_label": "Deine Version des Sounds (optional)",
+    "audio_hint": "Füge deinen Versuch an — der Fragende vergleicht ihn per A/B mit dem Original",
+    "delete_confirm": "Diese Antwort mit ihren Kommentaren löschen? Das kann nicht rückgängig gemacht werden.",
+    "edit_audio_hint": "Audio und Preset bleiben unverändert — sie können hier nicht ersetzt werden.",
+    "markers_label": "Moment-Marker (maximal {n})",
+    "marker_hint": "Höre dein Audio an, stoppe an der richtigen Stelle und drücke „📍 Marker“ — Hörer springen mit einem Klick dorthin",
+    "thanks_btn": "Danke sagen"
+  },
+  "links": {
+    "generic": "Link",
+    "kind_video": "Video-Tutorial",
+    "kind_article": "Artikel",
+    "kind_docs": "Dokumentation",
+    "kind_preset": "Preset / Sample",
+    "kind_other": "Sonstiges…",
+    "kind_other_plain": "Sonstiges",
+    "kind_label": "Link-Art",
+    "url_label": "Link",
+    "url_ph": "https://youtube.com/…",
+    "custom_ph": "Eigene Bezeichnung…",
+    "add": "Link hinzufügen",
+    "remove": "Link entfernen",
+    "count": "{n} von {max}",
+    "max_hint": "Maximal {max} Links",
+    "invalid": "Ungültiger Link (http/https-URL erwartet)",
+    "duplicate": "Dieser Link wurde schon hinzugefügt"
+  },
+  "ask": {
+    "title": "Neue Frage",
+    "subtitle": "Lade ein Audio-Beispiel des Sounds hoch, den du nachbauen willst",
+    "question_title": "Titel der Frage",
+    "title_ph": "Wie baue ich diesen Growl-Bass?",
+    "description": "Beschreibung",
+    "desc_ph": "Beschreibe, was du versucht hast und was du erreichen willst…",
+    "synth": "Synthesizer (falls bekannt)",
+    "synth_unknown": "Weiß nicht / egal",
+    "synth_other": "Anderer…",
+    "add_custom_synth": "Eigenen Synthesizer hinzufügen",
+    "custom_synth_ph": "Name des Synthesizers",
+    "custom_synth_hint": "Wird zur gemeinsamen Liste hinzugefügt — andere können ihn dann auch wählen",
+    "custom_synth_required": "Gib einen Synthesizer-Namen ein",
+    "custom_synth_added": "Synthesizer zur Liste hinzugefügt ✓",
+    "audio_upload": "Audio-Beispiel",
+    "audio_hint": "Nach dem Upload kannst du Überflüssiges abschneiden. Die Lautstärke wird automatisch normalisiert.",
+    "submit": "Frage veröffentlichen",
+    "title_required": "Gib einen Titel ein",
+    "links_banned": "Links sind in der Beschreibung nicht erlaubt — bitte entferne sie",
+    "created": "Frage veröffentlicht 🎉",
+    "choose_file": "Datei wählen",
+    "capture_btn": "Vom Computer aufnehmen",
+    "capture_ready": "Signal erfasst! Spiele den Ton auf der Website ab — sobald der Pegel ausschlägt, drücke „⏺ Aufnahme starten“",
+    "capture_start": "Aufnahme starten",
+    "capture_no_audio": "Kein Ton im Stream: Setze im Auswahlfenster den Haken „Tab-Audio teilen“ (für Systemton „Gesamten Bildschirm“ wählen)",
+    "capture_unsupported": "Dieser Browser unterstützt keine Computer-Audioaufnahme",
+    "capture_hint": "Aufnahme: Tab mit Musik wählen (✓ „Audio teilen“) → gewünschte Stelle abspielen → aufnehmen (bis 27 Sek.) → auf 7 Sek. zuschneiden",
+    "category": "Klangnatur (falls erkennbar)",
+    "category_hint": "Optional: den genauen Soundtyp (Bass, Pad…) bestimmen die Antwortenden",
+    "category_synth": "Synthese",
+    "category_fx": "FX / Bearbeitung",
+    "category_drums": "Drums / Rhythmus",
+    "category_sample": "Sample / Aufnahme",
+    "category_unknown": "Unklar",
+    "edit_title": "Frage bearbeiten",
+    "edit_subtitle": "Ändere die gewünschten Felder und speichere. Neues Audio ersetzt den alten Clip samt Markern.",
+    "updated": "Änderungen gespeichert",
+    "audio_replace_hint": "Audio ist bereits angehängt — du kannst es ersetzen: lade einen neuen Clip hoch, der alte (mit Markern) wird entfernt.",
+    "audio_add_hint": "Noch kein Audio angehängt — du kannst es hinzufügen.",
+    "clear_audio": "Audio entfernen",
+    "clear_audio_confirm": "Hinzugefügtes Audio samt Zuschnitt und Markern entfernen? Du kannst ein anderes hochladen oder aufnehmen.",
+    "audio_cleared": "Audio entfernt — du kannst ein anderes hinzufügen",
+    "audio_locked_hint": "Audio wurde bereits hinzugefügt — klicke auf „Audio entfernen“, um es zu ersetzen",
+    "loading_audio": "Audio wird geladen …"
+  },
+  "demo": {
+    "reseeded": "Demo-Datenbank aktualisiert (v{from} → v{to}): Avatar und Profileinstellungen übernommen, übrige Demo-Inhalte neu erzeugt"
+  },
+  "ads": {
+    "label": "Werbung",
+    "placeholder": "Anzeigenfläche"
+  },
+  "report": {
+    "button": "Melden",
+    "title": "An Moderatoren melden",
+    "reason_spam": "Spam",
+    "reason_offense": "Beleidigungen / Toxizität",
+    "reason_copyright": "Fremde Inhalte / Urheberrecht",
+    "reason_other": "Sonstiges",
+    "note_ph": "Erläuterung (optional)",
+    "submit": "Meldung senden",
+    "sent": "Meldung gesendet — die Moderatoren prüfen sie",
+    "duplicate": "Du hast das bereits gemeldet — die Meldung wird geprüft",
+    "target_question": "Frage",
+    "target_answer": "Antwort",
+    "target_comment": "Kommentar"
+  },
+  "moderation": {
+    "title": "Moderation",
+    "subtitle": "Meldungen der Nutzer über Inhalte",
+    "tab_new": "Neu",
+    "tab_all": "Alle",
+    "empty": "Keine neuen Meldungen 🎉",
+    "dismiss": "Ablehnen",
+    "remove": "Inhalt löschen",
+    "remove_confirm": "Gemeldeten Inhalt löschen? Das kann nicht rückgängig gemacht werden.",
+    "dismissed": "Meldung abgelehnt",
+    "removed": "Inhalt gelöscht, Meldung geschlossen",
+    "content_gone": "Inhalt bereits gelöscht — nichts zu prüfen",
+    "reporter": "Gemeldet von",
+    "status_dismissed": "Abgelehnt",
+    "status_actioned": "Inhalt gelöscht"
+  },
+  "presence": {
+    "online": [
+      "{n} Person online",
+      "{n} Personen online"
+    ],
+    "viewing_short": "Sehen gerade",
+    "who": "Jetzt online",
+    "you": "du",
+    "empty_list": "Gerade niemand außer dir",
+    "guests": [
+      "+{n} Gast",
+      "+{n} Gäste"
+    ],
+    "viewing": [
+      "{n} Person sieht gerade",
+      "{n} Personen sehen gerade"
+    ]
+  },
+  "audio": {
+    "encoding": "Kodierung… {progress}%"
+  },
+  "trimmer": {
+    "title": "Audio zuschneiden",
+    "hint": "Ziehe die Ränder der Auswahl oder nutze die Slider, um Überflüssiges abzuschneiden",
+    "hint_ws": "Ziehe die Ränder des kupferfarbenen Bereichs, um zuzuschneiden",
+    "start": "Start",
+    "end": "Ende",
+    "preview": "Vorschau",
+    "reset": "Zurücksetzen",
+    "normalizing": "Lautstärke wird normalisiert…",
+    "error": "Audiodatei konnte nicht verarbeitet werden",
+    "zoom_hint": "Mausrad — Verschieben, Strg+Mausrad — Zoom am Cursor, −/＋ zoomen ebenfalls. Auswahl maximal {n} Sek.",
+    "pan": "Verschieben",
+    "marker_add": "Marker",
+    "marker_note_ph": "Notiz: „dieser Growl“",
+    "marker_hint": "Marker wird an der aktuellen Hörposition gesetzt",
+    "marker_limit": "Marker-Limit erreicht: maximal {n}",
+    "marker_drag_hint": "Den Marker-Pin kannst du auf der Wellenform verschieben; ▶ im Chip spielt den Abschnitt ab diesem Marker",
+    "marker_play": "Ab diesem Marker abspielen"
+  },
+  "favorites": {
+    "title": "Favoriten",
+    "subtitle": "Fragen, die du zurückgelegt hast, um eine Antwort vorzubereiten",
+    "empty": "Deine Favoriten sind leer. Speichere Fragen aus dem Feed und bereite Antworten in deinem Tempo vor.",
+    "goto_feed": "Zum Feed",
+    "status_preparing": "Material in Vorbereitung",
+    "status_ready": "Antwortbereit",
+    "answer_btn": "Antworten",
+    "mark_ready": "Als bereit markieren",
+    "mark_preparing": "Zurück in Vorbereitung",
+    "added": "Zu Favoriten hinzugefügt ⭐",
+    "removed": "Aus Favoriten entfernt",
+    "login_required": "Melde dich an, um Favoriten zu sehen",
+    "purged_note": "Frage gelöst und gelöscht",
+    "open_archive": "Archivseite"
+  },
+  "messages": {
+    "title": "Nachrichten",
+    "login_required": "Melde dich an, um Nachrichten zu nutzen",
+    "no_conversations": "Noch keine Unterhaltungen",
+    "select_conversation": "Unterhaltung auswählen",
+    "placeholder": "Nachricht schreiben…",
+    "send": "Senden",
+    "today": "Heute",
+    "yesterday": "Gestern",
+    "typing": "{name} schreibt…",
+    "new_messages": "Neue Nachrichten",
+    "edited": "(bearbeitet)",
+    "attach_audio": "Audio anhängen",
+    "record": "Vom Mikrofon aufnehmen",
+    "stop_record": "Aufnahme beenden",
+    "mic_denied": "Kein Mikrofonzugriff — in den Browser-Einstellungen erlauben",
+    "add_reaction": "Reaktion hinzufügen",
+    "edit": "Bearbeiten",
+    "edit_failed": "Nachricht konnte nicht bearbeitet werden",
+    "delete_confirm": "Diese Nachricht löschen?",
+    "audio_pending": "Audio angehängt"
+  },
+  "profile": {
+    "open": "Profil öffnen",
+    "not_found": "Profil nicht gefunden",
+    "no_bio": "Noch keine Bio",
+    "edit": "Profil bearbeiten",
+    "settings": "Profil-Einstellungen",
+    "settings_hint": "Änderungen werden automatisch gespeichert",
+    "saving": "Wird gespeichert …",
+    "save_failed": "Speichern fehlgeschlagen — bitte erneut versuchen",
+    "language": "Sprache der Oberfläche",
+    "language_hint": "Der Sprachwechsel wird sofort übernommen",
+    "done": "Fertig",
+    "message": "Nachricht senden",
+    "change_avatar": "Avatar ändern",
+    "avatar_updated": "Avatar aktualisiert 📷",
+    "avatar_type_error": "Bitte wähle ein Bild (PNG, JPG…)",
+    "stat_questions": "Fragen",
+    "stat_answers": "Antworten",
+    "stat_likes": "Likes",
+    "stat_rating": "Bewertung",
+    "links": "Links",
+    "add_link": "Link hinzufügen",
+    "paste_link_ph": "Link einfügen: https://…",
+    "link_hint": "Die Plattform wird automatisch erkannt",
+    "link_detected": "Erkannt",
+    "link_invalid": "Ungültiger Link",
+    "daw": "DAW",
+    "no_daw": "Keine DAW gewählt",
+    "choose_daw": "DAW wählen",
+    "daw_hint": "Wähle eine oder mehrere DAWs. Fehlt eine? Füge sie über „+“ hinzu.",
+    "daw_other": "Andere DAW",
+    "daw_other_ph": "Name der DAW",
+    "daw_added": "DAW zur gemeinsamen Liste hinzugefügt ✓",
+    "skills": "Fähigkeiten",
+    "skills_ph": "FM-Synthese, Bass-Design…",
+    "no_skills": "Keine Fähigkeiten angegeben",
+    "tab_questions": "Meine Fragen",
+    "tab_answers": "Meine Antworten",
+    "tab_favorites": "Favoriten",
+    "no_questions": "Noch keine Fragen",
+    "no_answers": "Noch keine Antworten",
+    "bio": "Über mich",
+    "follow": "Folgen",
+    "following": "Du folgst",
+    "crop_title": "Avatar zuschneiden",
+    "crop_hint": "Bild verschieben und Zoom anpassen — der Bereich im kupferfarbenen Kreis wird dein Avatar.",
+    "crop_zoom": "Zoom",
+    "stat_solutions": "Lösungen",
+    "arsenal": "Arsenal",
+    "no_arsenal": "Keine Plugins hinzugefügt",
+    "choose_arsenal": "Meine Plugins und Synths",
+    "arsenal_hint": "Markiere deine Tools — Antwortende passen Tipps an dein Arsenal an. Fehlt etwas? Füge es über „+“ hinzu.",
+    "best_answers": "Beste Antworten",
+    "best_answers_empty": "Noch keine Antworten mit Audio — hänge Sound an eine Antwort an, und deine besten erscheinen hier",
+    "collab": "Offen für Kollaborationen",
+    "collab_toggle": "Offen für Kollaborationen und Aufträge",
+    "cover": "Profil-Cover",
+    "cover_hint": "Die Wellenform ist für dein Profil eindeutig — wähle, wie sie gezeichnet wird",
+    "cover_depth": "Tiefe",
+    "cover_mirror": "Spiegel",
+    "cover_spectrum": "Spektrum",
+    "cover_wave": "Welle",
+    "cover_studio": "Studio",
+    "donate_title": "Unterstützung für mich",
+    "donate_hint": "Diese Wege sehen Menschen, die auf Unterstützen in deinem Profil oder Danke unter deinen Antworten klicken. Geld geht direkt an dich — die Plattform wickelt keine Zahlungen ab.",
+    "donate_add": "Weg hinzufügen",
+    "donate_value_ph": "SBP-Telefon / Kartennummer / Link",
+    "donate_label_ph": "Beschriftung (optional)",
+    "hide_online": "Meinen Online-Status nicht zeigen"
+  },
+  "achievements": {
+    "title": "Erfolge",
+    "earned": "Erfolg freigeschaltet",
+    "first_answer": {
+      "name": "Erste Antwort",
+      "desc": "1 Frage beantwortet"
+    },
+    "commenter": {
+      "name": "Gesprächspartner",
+      "desc": "10 Kommentare geschrieben"
+    },
+    "on_fire": {
+      "name": "In Flammen",
+      "desc": "100 Likes auf Antworten erhalten"
+    },
+    "solver": {
+      "name": "Löser",
+      "desc": "5 deiner Antworten als Lösung markiert"
+    },
+    "tag_expert": {
+      "name": "Tag-Experte",
+      "desc": "10 Lösungen in einem Tag"
+    },
+    "melomaniac": {
+      "name": "Melomane",
+      "desc": "10 Audio-Fragen hochgeladen"
+    },
+    "helper": {
+      "name": "Helfer",
+      "desc": "25 Fragen beantwortet"
+    },
+    "legend": {
+      "name": "Legende",
+      "desc": "1000 Likes erhalten"
+    },
+    "generous": {
+      "name": "Großzügig",
+      "desc": "5 Presets in Antworten hochgeladen"
+    },
+    "curator": {
+      "name": "Kurator",
+      "desc": "20 Fragen als Favoriten gespeichert und beantwortet"
+    }
+  },
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "mark_all_read": "Alle als gelesen markieren",
+    "empty": "Keine Benachrichtigungen",
+    "type_answer": "hat deine Frage beantwortet",
+    "type_like": "mag",
+    "type_new_question_tag": "Neue Frage zum Tag",
+    "type_solution": "hat deine Antwort als Lösung markiert",
+    "rep_awarded": "+{n} Reputation",
+    "type_reminder": "Ist deine Frage gelöst? Sieh dir die Antworten an und markiere die beste:",
+    "type_purge": "Frage gelöst und archiviert:",
+    "type_purge_tail": "An ihrer Stelle bleibt eine Archivseite.",
+    "type_support": "sendet Worte des Dankes"
+  },
+  "subscriptions": {
+    "title": "Abonnements",
+    "tags": "Tags",
+    "authors": "Autoren",
+    "no_tags": "Keine Tag-Abos",
+    "no_authors": "Keine Autor-Abos",
+    "unsubscribe": "Abbestellen",
+    "subscribed_author": "Du folgst jetzt dem Autor",
+    "subscribed_tag": "Tag abonniert",
+    "unsubscribed": "Abo beendet"
+  },
+  "monetization": {
+    "soon_badge": "Demnächst"
+  },
+  "marketplace": {
+    "title": "Preset-Marktplatz",
+    "subtitle": "Presets von Community-Mitgliedern kaufen und verkaufen",
+    "coming_soon": "Der Preset-Marktplatz ist in Arbeit. Bald kannst du deine Packs verkaufen, die Plattform nimmt eine Provision.",
+    "payments_pending": "Zahlungen nicht integriert",
+    "payments_pending_desc": "Das Zahlungssystem wird bei Aktivierung der Monetarisierung festgelegt."
+  },
+  "premium": {
+    "title": "Premium-Konto",
+    "coming_soon": "Premium-Abo in Arbeit: mehr Uploads, Feed-Priorität und exklusive Abzeichen.",
+    "payments_pending": "Zahlungen nicht integriert",
+    "payments_pending_desc": "Das Zahlungssystem wird bei Aktivierung der Monetarisierung festgelegt.",
+    "feat_uploads": "Mehr Uploads",
+    "feat_spectro": "Erweiterte Analyse",
+    "feat_priority": "Feed-Priorität",
+    "feat_badges": "Exklusive Abzeichen"
+  },
+  "affiliate": {
+    "title": "Partnerprogramm",
+    "coming_soon": "Partner-Links für Plugins in Arbeit: erwähne Plugins in Antworten und verdiene Belohnungen.",
+    "payments_pending": "Zahlungen nicht integriert"
+  },
+  "support": {
+    "title_user": "{name} unterstützen",
+    "title_project": "Projekt unterstützen",
+    "subtitle_user": "Ein Dankeschön an den Autor für Antworten, Presets und Zeit",
+    "subtitle_project": "Für die Entwicklung von SampleHelp: Server, neue Features und Community",
+    "currency": "Währung",
+    "custom_ph": "Eigener Betrag",
+    "message_ph": "Dankesworte (optional)",
+    "submit": "Unterstützen",
+    "amount_required": "Betrag wählen oder eingeben",
+    "soon_text": "Die Unterstützungsebene ist derzeit per Konfiguration deaktiviert (ENABLE_DONATIONS).",
+    "thanks": "☕ Danke! Deine Unterstützung zählt — Zahlungen kommen bald",
+    "stat_supported": "unterstützt",
+    "footer_btn": "Projekt unterstützen",
+    "menu_btn": "Projekt unterstützen",
+    "kind_sbp": "SBP (Telefonnummer)",
+    "kind_card": "Bankkarte",
+    "kind_yoomoney": "YooMoney",
+    "kind_boosty": "Boosty",
+    "kind_donationalerts": "DonationAlerts",
+    "kind_telegram": "Telegram",
+    "kind_other": "Sonstiges",
+    "go": "Öffnen",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "no_methods_project": "Direkte Unterstützungswege fürs Projekt kommen bald — einstweilen freuen wir uns über nette Worte.",
+    "no_methods_other": "Noch keine Empfangswege eingerichtet — aber nette Worte kommen trotzdem an.",
+    "thanks_ph": "Ein paar Worte an die Autorin/den Autor (optional)",
+    "thanks_send": "Danke senden",
+    "thanks_sent": "Danke gesendet — die Person sieht es in den Benachrichtigungen und im Profil",
+    "disclaimer": "Die Plattform wickelt keine Zahlungen ab: Die Überweisung geht direkt an die empfangende Person."
+  },
+  "help": {
+    "title": "Hilfe",
+    "mode_banner": "Hilfe-Modus: Klicke auf ein beliebiges Element, um seine Funktion zu sehen.",
+    "exit": "Hilfe beenden",
+    "no_info": "Für dieses Element gibt es noch keine Hilfe",
+    "esc_hint": "Esc — beenden",
+    "tour_step": "Schritt {n} von {total}",
+    "tour_next": "Weiter",
+    "tour_prev": "Zurück",
+    "tour_skip": "Überspringen",
+    "tour_finish": "Verstanden!",
+    "items": {
+      "nav_logo": {
+        "title": "SampleHelp-Logo",
+        "desc": "Klick bringt dich zurück zum Haupt-Feed der Fragen."
+      },
+      "nav_feed": {
+        "title": "Feed",
+        "desc": "Hauptbildschirm: frische Community-Fragen. Hör dir Beispiele an, klappe Antworten direkt im Feed auf oder öffne die Frageseite."
+      },
+      "nav_favorites": {
+        "title": "Favoriten",
+        "desc": "Fragen, die du mit ⭐ markiert hast. Bleiben auch nach dem Lösen erhalten."
+      },
+      "nav_messages": {
+        "title": "Nachrichten",
+        "desc": "Private Chats mit Mitgliedern. Der rote Zähler zeigt ungelesene Nachrichten."
+      },
+      "nav_bell": {
+        "title": "Benachrichtigungen",
+        "desc": "Antworten auf deine Fragen, Likes, markierte Lösungen, Dank und Erinnerungen. Klick öffnet das Panel; ein Eintrag springt zur Frage."
+      },
+      "nav_help": {
+        "title": "„Was ist das?“-Hilfe",
+        "desc": "Aktiviert den Hilfe-Modus: Alle Funktionen werden vorübergehend gesperrt, und ein Klick auf ein beliebiges Element zeigt, was es tut. Esc oder erneuter Klick beendet ihn. Dazu: schnelle Tour und die Seite /help."
+      },
+      "nav_ask": {
+        "title": "Frage stellen",
+        "desc": "Öffnet das Frageformular: Titel, Beschreibung, Audio-Beispiel (Datei oder Mikrofon-/Bildschirmaufnahme), Synth und Kategorie."
+      },
+      "nav_usermenu": {
+        "title": "Profilmenü",
+        "desc": "Dein Avatar: Profil, Hilfe, Moderation (Admins), Projekt unterstützen und abmelden."
+      },
+      "auth_login": {
+        "title": "Anmelden",
+        "desc": "Login für registrierte Mitglieder. Im Demo-Modus funktioniert jede E-Mail mit einem Passwort ab 6 Zeichen."
+      },
+      "auth_signup": {
+        "title": "Registrieren",
+        "desc": "Konto erstellen: E-Mail, Name und Passwort. Danach folgt ein kurzes Onboarding zu deinen DAWs und Synths."
+      },
+      "footer_support": {
+        "title": "Projekt unterstützen",
+        "desc": "Öffnet die Support-Optionen von SampleHelp. Das Geld geht direkt an den Empfänger — die Plattform ist nie beteiligt."
+      },
+      "footer_demo": {
+        "title": "Modus-Anzeige",
+        "desc": "Zeigt, ob die Seite mit Demo-Daten oder einer echten Supabase-Datenbank läuft."
+      },
+      "feed_sort": {
+        "title": "Feed-Sortierung",
+        "desc": "Neu — nach Datum; Beliebt — nach Likes und Antworten; Unbeantwortet — Fragen, denen noch niemand geholfen hat."
+      },
+      "feed_card": {
+        "title": "Fragen-Karte",
+        "desc": "Klick auf die Karte klappt Antworten und Kommentare direkt im Feed auf. Klick auf den Titel öffnet die volle Frageseite mit allen Werkzeugen."
+      },
+      "feed_minplayer": {
+        "title": "Mini-Player",
+        "desc": "Wellenform des Audio-Beispiels: Klick spielt/pausiert die Vorschau. Marker-Chips darunter spielen ab einem bestimmten Moment."
+      },
+      "feed_answer_btn": {
+        "title": "„Antworten“-Button",
+        "desc": "Öffnet die Frageseite und das Antwortformular. Bei gelösten Fragen ist das Antworten geschlossen."
+      },
+      "fav_btn": {
+        "title": "Favorit ⭐",
+        "desc": "Speichert die Frage in den Favoriten (Stern im Header). Erneuter Klick entfernt sie. Bei gelösten Fragen schreibgeschützt."
+      },
+      "status_badge": {
+        "title": "Fragestatus",
+        "desc": "„Offen“ — wartet auf Antworten. „✓ Gelöst“ — der Autor hat eine Lösung markiert; nach 7 Tagen wird die Frage archiviert und die Seite wird zum Platzhalter."
+      },
+      "presence_widget": {
+        "title": "Wer ist online",
+        "desc": "Wie viele Mitglieder und Gäste gerade auf der Seite sind. Klick zeigt die Liste mit Profillinks. Du kannst dich in den Profileinstellungen ausblenden."
+      },
+      "ad_slot": {
+        "title": "Werbeplatz",
+        "desc": "Hier kann Werbung (Yandex-Netzwerk) erscheinen — sie bezahlt die Server des Projekts. Aktuell per Konfiguration deaktiviert."
+      },
+      "like_btn": {
+        "title": "Gefällt mir 🔥",
+        "desc": "Bringt die Frage im „Beliebt“-Feed nach oben. Ein Like pro Mitglied und Frage."
+      },
+      "share_btn": {
+        "title": "Teilen 🔗",
+        "desc": "Kopiert den Fragen-Link in die Zwischenablage — praktisch für Messenger."
+      },
+      "report_btn": {
+        "title": "Melden ⚑",
+        "desc": "Meldung an die Moderatoren senden: Spam, Beleidigungen, fremde Inhalte. Doppelte Meldungen zum selben Objekt werden abgelehnt."
+      },
+      "follow_btn": {
+        "title": "Autor folgen",
+        "desc": "„＋ Folgen“ — Benachrichtigungen über neue Fragen dieses Autors. Erneuter Klick entfolgt."
+      },
+      "edit_btn": {
+        "title": "Bearbeiten ✏️",
+        "desc": "Eigenen Inhalt ändern. Nur für den Autor sichtbar; Änderungen werden markiert."
+      },
+      "delete_btn": {
+        "title": "Löschen 🗑",
+        "desc": "Eigenen Inhalt endgültig löschen. Nur für den Autor, mit Bestätigung."
+      },
+      "player_play": {
+        "title": "▶-Taste",
+        "desc": "Audio-Beispiel ab der aktuellen Position abspielen/pausieren."
+      },
+      "player_wave": {
+        "title": "Wellenform",
+        "desc": "Lautstärkegrafik des Beispiels: Klick spult zu dieser Stelle, der kupferne Balken zeigt den Fortschritt. Punkte auf der Welle sind Marker des Autors."
+      },
+      "player_markers": {
+        "title": "Marker",
+        "desc": "Chips wie „0:12 — dieser Growl“: Klick spielt ab diesem Moment, erneuter Klick pausiert. Der Autor markiert die interessantesten Stellen."
+      },
+      "ab_btn": {
+        "title": "A/B-Vergleich 🎧",
+        "desc": "Blindvergleich: A ist das Frage-Audio, B das Antwort-Audio. Klick auf eine Seite (oder Tasten A/B, Space) spielt sie von vorn — so hörst du, wie nah die Antwort am Sound ist."
+      },
+      "answer_card": {
+        "title": "Antwort-Karte",
+        "desc": "Antworttext, Typ (Technik/Preset/Tutorial), Schwierigkeit, Tags sowie Audio-Beispiel und Preset, falls angehängt. Die markierte Lösung bekommt einen Kupferrahmen."
+      },
+      "answer_like": {
+        "title": "Antwort liken 🔥",
+        "desc": "Zeigen, dass die Antwort hilfreich ist. Likes heben sie in der Liste und stärken die Reputation des Autors."
+      },
+      "solution_btn": {
+        "title": "Als Lösung markieren ✓",
+        "desc": "Button des Frageautors: Diese Antwort hat das Problem gelöst. Die Frage wird geschlossen und nach 7 Tagen archiviert; der Autor gewinnt Reputation und eine Auszeichnung."
+      },
+      "thanks_btn": {
+        "title": "Danke sagen ☕",
+        "desc": "Sende dem Antwort-Autor Dankesworte (und Unterstützung, falls er Optionen hinterlegt hat). Der ☕-Zähler ist ein Zeichen der Anerkennung."
+      },
+      "comment_form": {
+        "title": "Kommentare",
+        "desc": "Kurze Rückfragen unter einer Antwort: Detail erfragen oder danken. Enter sendet den Kommentar."
+      },
+      "q_stats": {
+        "title": "Fragen-Statistik",
+        "desc": "Antworten, Likes, Status und wie viele Personen die Seite gerade ansehen."
+      },
+      "answer_form": {
+        "title": "Antwortformular",
+        "desc": "Beschreibe die Technik (Oszillatoren, Modulation, Effekte), wähle Typ und Schwierigkeit, füge Tags, ein Audio-Beispiel, ein Preset und Links hinzu."
+      },
+      "attach_audio_btn": {
+        "title": "Audio anhängen 📁",
+        "desc": "Audiodatei vom Computer wählen. Lange Aufnahmen lassen sich zuschneiden; die Lautstärke wird normalisiert."
+      },
+      "rec_btn": {
+        "title": "Vom Mikrofon aufnehmen ⏺",
+        "desc": "Beispiel mit dem Mikrofon aufnehmen (bis 60 s). Im Frageformular ist auch Bildschirmaudio-Aufnahme verfügbar."
+      },
+      "rec_allow": {
+        "title": "Mikrofon erlauben",
+        "desc": "Der Browser fragt nach Mikrofonzugriff. Ohne Erlaubnis kann die Aufnahme nicht starten — prüfe die Website-Einstellungen im Browser."
+      },
+      "rec_start": {
+        "title": "Aufnahme starten/stoppen",
+        "desc": "⏺ startet (Timer und Pegelanzeige laufen), ⏹ stoppt und hängt das Ergebnis an die Nachricht oder Antwort an."
+      },
+      "preset_upload": {
+        "title": "Synth-Preset",
+        "desc": "Preset-Datei anhängen (.fxb/.fxp/.json) — andere können sie herunterladen und deinen Sound sofort hören."
+      },
+      "links_editor": {
+        "title": "Links",
+        "desc": "Tutorials, Artikel, Videos und Presets zum Thema. In den Text eingefügte Links werden zu Vorschau-Karten."
+      },
+      "marker_picker": {
+        "title": "Antwort-Marker",
+        "desc": "Setze bis zu 8 Marken in deinem Audio: „dieser Growl“, „der Drop“. Klick auf 📍 fügt einen Marker an der Abspielposition hinzu."
+      },
+      "purge_banner": {
+        "title": "Archiv-Timer",
+        "desc": "Eine gelöste Frage lebt noch 7 Tage, dann wird der Inhalt gelöscht und die Seite wird zum Platzhalter — Links führen nicht ins Leere."
+      },
+      "unresolve_btn": {
+        "title": "Lösung aufheben ↩",
+        "desc": "Frage wieder auf „Offen“ setzen (nur Autor): Antworten sind wieder offen, die Archivierung wird abgebrochen."
+      },
+      "ask_title": {
+        "title": "Fragentitel",
+        "desc": "Kurz und präzise: „Harscher Growl-Bass wie in X“. Bis 120 Zeichen — darüber finden andere deine Frage."
+      },
+      "ask_desc": {
+        "title": "Beschreibung",
+        "desc": "Was für ein Sound, wo gehört, was schon probiert. Mehr Kontext — bessere Antworten."
+      },
+      "ask_synth": {
+        "title": "Synthesizer",
+        "desc": "In welchem Synth du den Sound nachbauen willst (Serum, Phase Plant, Vital…). Eigene Option über „＋“."
+      },
+      "ask_category": {
+        "title": "Kategorie",
+        "desc": "Sound-Typ: Bass, Lead, Pad, FX, Drums… Hilft beim Filtern des Feeds und beim Finden von Kategorie-Experten."
+      },
+      "ask_submit": {
+        "title": "Frage veröffentlichen",
+        "desc": "Prüft die Pflichtfelder und stellt die Frage in den Feed. Der Formularentwurf wird automatisch gespeichert."
+      },
+      "trimmer": {
+        "title": "Audio-Trimmen",
+        "desc": "Überflüssiges abschneiden: kupferne Auswahlränder ziehen oder Start/Ende-Slider nutzen; Mausrad scrollt, Strg+Rad zoomt. Marker und Länge (bis 20 s) werden mit der Frage gespeichert."
+      },
+      "profile_settings_btn": {
+        "title": "Profileinstellungen ⚙️",
+        "desc": "Name, Bio, Oberflächensprache, Cover, DAWs/Arsenal, Skills, Links, Kollab-Bereitschaft, Online-Sichtbarkeit und Support-Optionen."
+      },
+      "support_user_btn": {
+        "title": "Mitglied unterstützen ☕",
+        "desc": "Support-Optionen dieses Mitglieds öffnen (falls hinterlegt) und Dankesworte senden."
+      },
+      "message_btn": {
+        "title": "Nachricht senden 💬",
+        "desc": "Privaten Chat mit diesem Mitglied öffnen. Im Chat kannst du Audio anhängen."
+      },
+      "avatar_btn": {
+        "title": "Avatar ändern 📷",
+        "desc": "Bild hochladen und mit dem runden Cropper zuschneiden."
+      },
+      "best_answers": {
+        "title": "Beste Antworten",
+        "desc": "Auto-Schaufenster: Antworten des Nutzers, die Frageautoren als Lösung markiert haben. Baut sich von selbst — nichts einzurichten."
+      },
+      "profile_tabs": {
+        "title": "Profil-Tabs",
+        "desc": "Fragen, Antworten und (im eigenen Profil) Favoriten des Nutzers."
+      },
+      "profile_links": {
+        "title": "Profil-Links",
+        "desc": "Soziale Netzwerke, Kanäle, Portfolio. URL einfügen — der Typ wird automatisch erkannt (Icon und Farbe)."
+      },
+      "profile_stats": {
+        "title": "Statistik",
+        "desc": "Fragen, Antworten, Reputation und Bewertung des Mitglieds. Reputation wächst durch Likes und markierte Lösungen."
+      },
+      "set_lang": {
+        "title": "Oberflächensprache",
+        "desc": "Russisch, Englisch oder Deutsch. Wird sofort auf der ganzen Website übernommen."
+      },
+      "set_username": {
+        "title": "Benutzername",
+        "desc": "Wie andere Mitglieder dich sehen. Bis 24 Zeichen."
+      },
+      "set_bio": {
+        "title": "Über mich",
+        "desc": "Ein paar Zeilen: Genres, Erfahrung, wie du helfen kannst. Wird im Profil angezeigt."
+      },
+      "set_cover": {
+        "title": "Profil-Cover",
+        "desc": "Dekorative Welle hinter dem Avatar — Stil und Farbe aus Vorlagen wählen."
+      },
+      "set_links": {
+        "title": "Links",
+        "desc": "Soziale Netzwerke und Portfolio hinzufügen/entfernen — siehe „Profil-Links“."
+      },
+      "set_daw": {
+        "title": "Meine DAWs",
+        "desc": "Markiere deine Software (Ableton, FL Studio…). Zeigt an deinen Antworten ein „antwortet aus eigener DAW“-Badge."
+      },
+      "set_arsenal": {
+        "title": "Arsenal",
+        "desc": "Deine Synths und Plugins — hilft anderen einzuschätzen, wie nah du am Thema der Frage bist."
+      },
+      "set_collab": {
+        "title": "Offen für Kollabs",
+        "desc": "Zeigt im Profil ein „sucht Kollabs“-Badge — so finden dich Gleichgesinnte."
+      },
+      "set_hide_online": {
+        "title": "Meinen Online-Status verbergen",
+        "desc": "Du erscheinst nicht in „Wer ist online“ (weder in der Liste noch in der Mitgliederzahl)."
+      },
+      "set_skills": {
+        "title": "Skills",
+        "desc": "Skill-Tags mit Enter: Sound Design, Mixing, Serum… Werden im Profil angezeigt."
+      },
+      "set_donate": {
+        "title": "Support-Optionen ☕",
+        "desc": "Füge hinzu, wohin man dir Unterstützung senden kann: Karte/Telefon, Krypto, Boosty usw. Das Geld geht direkt an dich — die Plattform sieht es nie. Ein ☕-Button erscheint in deinem Profil und unter deinen Antworten."
+      },
+      "set_done": {
+        "title": "Fertig",
+        "desc": "Einstellungen schließen. Alle Änderungen werden beim Tippen automatisch gespeichert."
+      },
+      "msg_conv": {
+        "title": "Unterhaltungen",
+        "desc": "Deine privaten Chats: letzter Auszug, Zeit und Ungelesen-Zähler."
+      },
+      "msg_input": {
+        "title": "Nachrichtenfeld",
+        "desc": "Text der privaten Nachricht. Links auf SampleHelp-Fragen werden zu Vorschau-Karten."
+      },
+      "msg_send": {
+        "title": "Senden ➤",
+        "desc": "Nachricht senden. Enter tut dasselbe."
+      },
+      "msg_react": {
+        "title": "Reaktionen 😀",
+        "desc": "Schnelle Emoji-Reaktion ohne Worte. Erneuter Klick auf die eigene Reaktion entfernt sie."
+      },
+      "msg_actions": {
+        "title": "Nachrichtenaktionen",
+        "desc": "Erscheinen beim Darüberfahren: Reaktion, bei eigenen Nachrichten außerdem Bearbeiten ✏️ und Löschen 🗑."
+      },
+      "notif_item": {
+        "title": "Benachrichtigung",
+        "desc": "Klick springt zur zugehörigen Frage: Antwort, Like, Lösung, Dank oder Erinnerung."
+      },
+      "notif_mark_all": {
+        "title": "Alle gelesen",
+        "desc": "Ungelesen-Zähler mit einem Klick löschen."
+      },
+      "mod_dismiss": {
+        "title": "Meldung ablehnen",
+        "desc": "Die Meldung ist unbegründet — ohne Eingriff in den Inhalt schließen."
+      },
+      "mod_remove": {
+        "title": "Inhalt entfernen",
+        "desc": "Inhalt aufgrund der Meldung sperren (Admins). Der Autor wird benachrichtigt."
+      },
+      "report_modal": {
+        "title": "Meldeformular",
+        "desc": "Wähle einen Grund (Spam, Beleidigungen, fremde Inhalte), optional eine Notiz — die Moderatoren prüfen es."
+      },
+      "sup_methods": {
+        "title": "Support-Optionen",
+        "desc": "Angaben des Empfängers: „Öffnen“ startet den Dienst (Krypto/Boosty…), „Kopieren“ kopiert die Nummer. Die Plattform wickelt keine Zahlungen ab — die Überweisung erfolgt direkt."
+      },
+      "sup_thanks": {
+        "title": "Dankesworte",
+        "desc": "Eine kurze Nachricht an den Empfänger (bis 140 Zeichen). Wird zusammen mit dem „Danke“ gesendet und erhöht dessen ☕-Zähler."
+      },
+      "sup_disclaimer": {
+        "title": "Hinweis",
+        "desc": "SampleHelp ist an der Überweisung nicht beteiligt: Du unterstützt das Mitglied oder das Projekt direkt und verantwortest Betrag und Angaben selbst."
+      }
+    }
+  },
+  "helpPage": {
+    "subtitle": "Wie SampleHelp funktioniert — kurz und bündig.",
+    "cta_text": "Am besten lernst du durch Ausprobieren: Aktiviere den „Was ist das?“-Modus und klicke durch die Oberfläche (nichts geht kaputt) oder starte die 8-Schritte-Tour.",
+    "cta_mode": "„Was ist das?“-Modus",
+    "cta_tour": "Schnelle Tour starten",
+    "sections": {
+      "what_is": {
+        "t": "Was ist SampleHelp",
+        "d": "Eine Q&A-Community von Sound-Designern: Lade ein Audio-Beispiel des Sounds hoch, den du nachbauen möchtest — Mitglieder schlagen Techniken, Presets oder Tutorials für Serum, Phase Plant, Vital und andere Synths vor."
+      },
+      "ask": {
+        "t": "So stellst du eine Frage",
+        "d": "Klick auf „＋ Frage stellen“: Titel, Beschreibung, Synth und Kategorie plus Audio-Beispiel — Datei, Mikrofon- oder Bildschirmaudio-Aufnahme. Überflüssiges im Trimmer kürzen, Schlüsselmomente mit Markern versehen."
+      },
+      "answer": {
+        "t": "So antwortest du",
+        "d": "Auf der Frageseite: Text mit der Technik (Oszillatoren, Modulation, Effekte), Typ und Schwierigkeit, Tags, eigenes Audio-Beispiel mit Markern und Preset-Datei. Der Frageautor markiert die beste Lösung ✓ — sie landet in deinem Schaufenster „Beste Antworten“."
+      },
+      "audio": {
+        "t": "Player, Marker und A/B",
+        "d": "Klick auf die Wellenform spult; Marker-Chips spielen ab dem markierten Moment. Der 🎧-A/B-Button an einer Antwort startet den Blindvergleich mit dem Original: A ist die Frage, B die Antwort; die Tasten A/B und Space wechseln die Seiten."
+      },
+      "profile": {
+        "t": "Profil und Einstellungen",
+        "d": "Im Profil: Cover, DAWs und Arsenal, Skills, Links, Online-Sichtbarkeit und ein Auto-Schaufenster deiner besten Antworten. Alle Einstellungen speichern automatisch."
+      },
+      "donate": {
+        "t": "Unterstützung ☕",
+        "d": "Mitglieder können eigene Support-Optionen hinterlegen (Krypto, Boosty…) und du kannst ihnen Dank senden. Das Geld geht direkt an den Empfänger — die Plattform ist nie beteiligt. „Projekt unterstützen“ im Footer tut dasselbe für SampleHelp."
+      },
+      "social": {
+        "t": "Benachrichtigungen, Nachrichten, Online",
+        "d": "Die Glocke — Antworten, Likes, Lösungen und Erinnerungen; der Umschlag — private Chats mit Audio-Anhängen und Reaktionen; der „Wer ist online“-Chip — wer gerade auf der Seite ist (dich selbst kannst du in den Einstellungen ausblenden)."
+      },
+      "moderation": {
+        "t": "Meldungen und Moderation",
+        "d": "Das ⚑-Flag an jeder Frage, Antwort oder jedem Kommentar sendet eine Meldung an die Moderatoren: Spam, Beleidigungen, fremde Inhalte. Gelöste Fragen leben 7 Tage und werden dann archiviert, damit Links nicht ins Leere führen."
+      }
+    }
+  }
+}

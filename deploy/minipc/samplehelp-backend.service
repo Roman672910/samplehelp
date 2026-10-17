@@ -1,0 +1,35 @@
+# deploy/minipc/samplehelp-backend.service — systemd-юнит backend (Фаза D)
+# Ставится в /etc/systemd/system/samplehelp-backend.service
+# Секреты — в EnvironmentFile (/etc/samplehelp/backend.env, root:samplehelp 640).
+
+[Unit]
+Description=SampleHelp backend (API + Socket.IO)
+Documentation=file:///var/www/samplehelp/backend/README.md
+After=network-online.target postgresql.service
+Wants=network-online.target
+Requires=postgresql.service
+
+[Service]
+Type=simple
+User=samplehelp
+Group=samplehelp
+WorkingDirectory=/var/www/samplehelp/backend
+EnvironmentFile=/etc/samplehelp/backend.env
+ExecStart=/usr/bin/node src/app.js
+Restart=always
+RestartSec=3
+# Логирование в journald (journalctl -u samplehelp-backend -f)
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=samplehelp
+
+# --- Hardening ---
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+# Писать можно только в хранилище загрузок (бакеты на SSD)
+ReadWritePaths=/var/lib/samplehelp/storage
+
+[Install]
+WantedBy=multi-user.target

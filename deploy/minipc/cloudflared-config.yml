@@ -1,0 +1,24 @@
+# deploy/minipc/cloudflared-config.yml — шаблон конфига Cloudflare Tunnel
+# Ставится в /etc/cloudflared/config.yml (30-tunnel.sh подставит домен и UUID).
+# Трафик: пользователь → Cloudflare (TLS) → исходящий туннель cloudflared →
+# локальный Nginx (:80). ВХОДЯЩИХ портов на мини-ПК нет вовсе.
+
+tunnel: samplehelp
+# UUID туннеля и credentials-файл создаются командой:
+#   cloudflared tunnel create samplehelp   → /root/.cloudflared/<UUID>.json
+credentials-file: /root/.cloudflared/TUNNEL-UUID.json
+
+ingress:
+  - hostname: ваш-домен.ru
+    service: http://127.0.0.1:80
+    originRequest:
+      connectTimeout: 30s
+      noTLSVerify: true        # origin по http — TLS терминирует Cloudflare
+  # www → основной домен (опционально: второй hostname или Redirect Rule в дашборде)
+  - hostname: www.ваш-домен.ru
+    service: http://127.0.0.1:80
+    originRequest:
+      connectTimeout: 30s
+      noTLSVerify: true
+  # Всё остальное — 404 (обязательная последняя строка)
+  - service: http_status:404

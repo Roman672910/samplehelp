@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SampleHelp: статический sitemap (заглушка до Этапа 4).
+     Домен — PLACEHOLDER (samplehelp.example): заменить на реальный при выкладке
+     на Cloudflare Pages; там же добавить динамическую генерацию URL вопросов
+     и профилей (Pages Functions/Worker), когда появится серверный рендер OG. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://samplehelp.example/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://samplehelp.example/help</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
