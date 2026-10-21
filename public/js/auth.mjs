@@ -107,11 +107,13 @@ function renderAuthArea(user) {
         <button type="button" class="conv-item" data-act="profile">👤 <span>${escapeHtml(t('nav.profile'))}</span></button>
         <button type="button" class="conv-item" data-act="help">📖 <span>${escapeHtml(t('help.title'))}</span></button>
         ${user.is_admin ? `<button type="button" class="conv-item" data-act="moderation">🛡 <span>${escapeHtml(t('nav.moderation'))}</span></button>` : ''}
+        ${user.is_admin ? `<button type="button" class="conv-item" data-act="admindb">🗄 <span>${escapeHtml(t('nav.admin_db'))}</span></button>` : ''}
         <button type="button" class="conv-item" data-act="support">☕ <span>${escapeHtml(t('support.menu_btn'))}</span></button>
         <button type="button" class="conv-item" data-act="logout">🚪 <span>${escapeHtml(t('nav.logout'))}</span></button>`;
       menu.querySelector('[data-act="profile"]').addEventListener('click', () => { menu.hidden = true; navigate('/profile'); });
       menu.querySelector('[data-act="help"]').addEventListener('click', () => { menu.hidden = true; navigate('/help'); });
       menu.querySelector('[data-act="moderation"]')?.addEventListener('click', () => { menu.hidden = true; navigate('/moderation'); });
+      menu.querySelector('[data-act="admindb"]')?.addEventListener('click', () => { menu.hidden = true; navigate('/admin'); });
       menu.querySelector('[data-act="support"]').addEventListener('click', () => { menu.hidden = true; openSupportModal({ recipientUserId: null }); });
       menu.querySelector('[data-act="logout"]').addEventListener('click', doLogout);
       // Меню уже видимое и наполненное — ставим его точно под аватар

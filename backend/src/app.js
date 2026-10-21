@@ -15,6 +15,7 @@ import { profilesRouter } from './routes/profiles.js';
 import { questionsRouter, answersRouter } from './routes/questions.js';
 import { socialRouter } from './routes/social.js';
 import { messagesRouter } from './routes/messages.js';
+import { adminRouter } from './routes/admin.js';
 import {
   notificationsRouter, donationsRouter, reportsRouter, ideasRouter, uploadRouter, catalogRouter,
 } from './routes/misc.js';
@@ -45,6 +46,9 @@ export function createApp() {
   app.use('/api/answers', answersRouter);
   app.use('/api', socialRouter); // /api/likes/toggle, /api/favorites…, /api/subscriptions…, /api/achievements…
   app.use('/api/messages', messagesRouter);
+  // Заход 50: админ-просмотрщик БД (строго чтение; секреты не выезжают).
+  // Свой rate-limit: 60 запросов/мин — от случайного «прокликать» всё защищаемся
+  app.use('/api/admin', rateLimit({ windowMs: 60_000, max: 60, standardHeaders: true, legacyHeaders: false }), adminRouter);
   app.use('/api/notifications', notificationsRouter);
   app.use('/api/donations', donationsRouter);
   app.use('/api/reports', reportsRouter);

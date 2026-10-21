@@ -279,6 +279,23 @@ console.log('\n3) LOCAL: формы запросов/ответов (механ�
   ok(h?.ok === true, 'ensureClient → /api/health {ok:true} (индикатор подвала)');
 }
 
+console.log('\n3b) сетевой отказ: человекочитаемо и без сжигания токенов:');
+{
+  localStorage.setItem('samplehelp_api_tokens', JSON.stringify({ access: 'A-NET', refresh: 'R-NET' }));
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async () => { throw new TypeError('Failed to fetch'); };
+  let netErr = null;
+  try { await api.fetchAdminTables(); } catch (e) { netErr = e; }
+  ok(netErr?.code === 'network' && /недоступен|unreachable/i.test(netErr.message) && netErr.message.includes('http://api.test'),
+    'сетевой сбой → code=network + сообщение с адресом backend и подсказкой');
+  const alive = await api.getSessionUser();
+  ok(alive === null, 'getSessionUser при мёртвом сервере → null (гость, без падений)');
+  const tkNet = JSON.parse(localStorage.getItem('samplehelp_api_tokens') || 'null');
+  ok(tkNet && tkNet.refresh === 'R-NET', 'refresh-пара НЕ сожжена сетевым сбоем (войдёт после подъёма сервера)');
+  globalThis.fetch = realFetch;
+  localStorage.setItem('samplehelp_api_tokens', JSON.stringify({ access: JWT_NEO, refresh: 'R1' })); // секция 4 ждёт свои токены
+}
+
 console.log('\n4) LOCAL: Socket.IO (фейковый клиент) — пуши, typing, presence:');
 {
   const gotSocket = await api.getSocket();

@@ -184,6 +184,8 @@ ok(!!admErr, 'не-админ статус жалобы не меняет');
 let ideaErr = null;
 try { await api.setIdeaStatus(idea.id, 'done'); } catch (e) { ideaErr = e; }
 ok(!!ideaErr, 'не-админ статус идеи не меняет');
+const admForbidden = await fetch(BASE + '/api/admin/tables', { headers: { authorization: 'Bearer ' + JSON.parse(localStorage.getItem('samplehelp_api_tokens')).access } });
+ok(admForbidden.status === 403, 'админ-API (/api/admin/tables) не-админу → 403 (заход 50)');
 
 console.log('\n8) загрузка файлов (SSD → /files):');
 const fileUrl = await api.uploadAudio(new Blob(['smoke-opus-data'], { type: 'audio/webm' }));

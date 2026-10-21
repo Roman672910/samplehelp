@@ -81,19 +81,29 @@ let refreshing = null;
 async function doRefresh() {
   const tk = readTokens();
   if (!tk?.refresh) return false;
+  let res;
   try {
-    const res = await fetch(`${apiBase()}/api/auth/refresh`, {
+    res = await fetch(`${apiBase()}/api/auth/refresh`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ refresh: tk.refresh }),
     });
-    if (!res.ok) throw new Error(`refresh ${res.status}`);
+  } catch {
+    // Сетевой отказ (сервер лежит/недоступен): пару НЕ сжигаем — она ещё валидна,
+    // следующая попытка после подъёма сервера пройдём нормально
+    return false;
+  }
+  if (!res.ok) {
+    saveTokensRaw(null); // сервер ответил: сессия окончательно истекла
+    return false;
+  }
+  try {
     const data = await res.json();
     if (!data?.access) throw new Error('refresh: нет access');
     saveTokensRaw({ access: data.access, refresh: data.refresh });
     return true;
   } catch {
-    saveTokensRaw(null); // сессия окончательно истекла
+    saveTokensRaw(null);
     return false;
   }
 }
@@ -118,7 +128,19 @@ async function apiFetch(path, { method = 'GET', body, auth = true, formData = nu
     },
     body: formData || (body !== undefined ? JSON.stringify(body) : undefined),
   });
-  let res = await call(auth ? (readTokens()?.access || null) : null);
+  let res;
+  try {
+    res = await call(auth ? (readTokens()?.access || null) : null);
+  } catch (netErr) {
+    // Сетевой отказ (сервер мёртв/недоступен, CORS, DNS): браузерное
+    // «Failed to fetch» ни о чём не говорит — объясняем сами (заход 50+)
+    const e = new Error(
+      `Backend недоступен по адресу ${apiBase()} (${netErr.message || 'сетевая ошибка'}). ` +
+      'Проверьте, что сервер запущен (node src/app.js), а API_URL в public/js/config.mjs верный.',
+    );
+    e.code = 'network';
+    throw e;
+  }
   if (res.status === 401 && auth && readTokens()?.refresh) {
     const okRefresh = await refreshTokens();
     if (okRefresh) res = await call(readTokens()?.access || null);
@@ -1087,4 +1109,36 @@ export async function fetchMyCommentCount() {
     const r = await apiFetch('/answers/count-mine');
     return r?.count ?? 0;
   } catch { return 0; }
+}
+
+// ============================================================
+// АДМИН-ПРОСМОТРЩИК БД (заход 50): экран /admin, строго чтение.
+// Секреты (refresh/reset_tokens, users.password_hash) фильтрует СЕРВЕР.
+// В демо недоступен: показывать нечего (нет БД) — экран рисует заглушку.
+// ============================================================
+
+/** Доступен ли просмотрщик (только при подключённом backend) */
+export function isAdminDbAvailable() {
+  return local();
+}
+
+/** Список таблиц public-схемы (без секретных) + оценка числа строк */
+export async function fetchAdminTables() {
+  if (!local()) return [];
+  return apiFetch('/admin/tables');
+}
+
+/** Колонки таблицы (без секретных) + точное число строк */
+export async function fetchAdminTableMeta(name) {
+  if (!local()) return null;
+  return apiFetch(`/admin/tables/${encodeURIComponent(name)}/meta`);
+}
+
+/** Страница строк: limit 1..100, offset ≥ 0, order_by — только колонка таблицы */
+export async function fetchAdminTableRows(name, { limit = 50, offset = 0, orderBy = '', dir = 'asc' } = {}) {
+  if (!local()) return null;
+  const q = new URLSearchParams({ limit: String(limit), offset: String(offset) });
+  if (orderBy) q.set('order_by', orderBy);
+  if (dir) q.set('dir', dir);
+  return apiFetch(`/admin/tables/${encodeURIComponent(name)}/rows?${q.toString()}`);
 }

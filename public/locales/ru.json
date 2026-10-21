@@ -42,7 +42,8 @@
     "signup": "Регистрация",
     "logout": "Выйти",
     "ask": "Задать вопрос",
-    "beta": "Beta"
+    "beta": "Beta",
+    "admin_db": "Данные"
   },
   "auth": {
     "login_title": "Вход в SampleHelp",
@@ -1107,6 +1108,26 @@
       "beta_badge": {
         "title": "Бета-версия",
         "desc": "Сайт работает в тестовом режиме: интерфейс и функции ещё могут меняться, возможны мелкие ошибки. Заметили проблему или чего-то не хватает — расскажите через «💡 Идеи» в шапке или напишите разработчику."
+      },
+      "admin_db_table": {
+        "title": "Список таблиц",
+        "desc": "Клик по строке списка открывает таблицу справа: колонки с типами и страница строк. Число справа — оценка количества строк в таблице."
+      },
+      "admin_db_sort": {
+        "title": "Сортировка колонки",
+        "desc": "Клик по заголовку сортирует строки по колонке: первый клик — по возрастанию (▲), повторный — по убыванию (▼). Сортировка идёт на сервере, поэтому работает по любой колонке."
+      },
+      "admin_db_pager": {
+        "title": "Пагинация",
+        "desc": "Стрелки листают страницы строк (по 50 или 100 — селект справа). Данные приходят с сервера страницами, целиком таблица не загружается."
+      },
+      "admin_db_refresh": {
+        "title": "Обновить данные",
+        "desc": "Перечитывает список таблиц и открытую таблицу с сервера. Просмотрщик показывает снимок на момент запроса — живого обновления нет."
+      },
+      "admin_db_row": {
+        "title": "Карточка строки",
+        "desc": "Клик по строке таблицы (или Enter при фокусе) открывает модалку со ВСЕМИ колонками этой строки: удобно для широких таблиц и jsonb-полей."
       }
     }
   },
@@ -1219,5 +1240,222 @@
     "admin_reply_btn": "Ответить",
     "admin_reply_cleared": "Ответ убран",
     "deleted": "Идея удалена"
+  },
+  "admin_db": {
+    "title": "Данные",
+    "subtitle": "Таблицы backend-БД в режиме «только чтение»: список, колонки, строки, карточка строки. Секреты (хеши паролей, токены сессий и сброса) не показываются вовсе.",
+    "unavailable": "Просмотр таблиц доступен только при подключённом backend (USE_LOCAL_BACKEND в config.mjs). В демо-режиме базы данных на сервере нет — показывать нечего.",
+    "tables": "Таблицы",
+    "pick_table": "Выберите таблицу слева",
+    "refresh": "Обновить",
+    "rows_total": "Строк: {n}",
+    "page": "{from}–{to} из {total}",
+    "page_size": "строк на странице",
+    "row_card": "Строка",
+    "empty": "Таблица пуста",
+    "pk": "Первичный ключ",
+    "sort_hint": "Клик — сортировка по колонке (asc/desc)",
+    "schema": {
+      "tables": {
+        "questions": "Вопросы",
+        "answers": "Ответы",
+        "subscriptions": "Подписки",
+        "profiles": "Профили",
+        "synth_catalog": "Справочник синтезаторов",
+        "owner_config": "Настройки владельца",
+        "daw_catalog": "Справочник DAW",
+        "user_software": "Софт пользователей",
+        "comments": "Комментарии",
+        "messages": "Сообщения",
+        "user_arsenal": "Арсенал пользователей",
+        "favorites": "Избранное",
+        "users": "Пользователи",
+        "donations": "Донаты",
+        "reports": "Жалобы",
+        "likes": "Лайки",
+        "notifications": "Уведомления",
+        "ideas": "Идеи",
+        "idea_votes": "Голоса за идеи",
+        "achievements": "Достижения"
+      },
+      "cols": {
+        "questions": {
+          "purge_at": "Срок зачистки",
+          "reminder_24h": "Напоминание 24 ч",
+          "reminder_3d": "Напоминание 3 дня",
+          "purged": "Зачищен",
+          "purge_summary": "Итог зачистки (JSON)",
+          "created_at": "Создан",
+          "edited_at": "Отредактирован",
+          "id": "ID",
+          "user_id": "Автор (ID)",
+          "waveform_data": "Форма волны (JSON)",
+          "markers": "Маркеры (JSON)",
+          "likes_count": "Лайков",
+          "answers_count": "Ответов",
+          "solved_at": "Решён",
+          "title": "Заголовок",
+          "description": "Описание",
+          "audio_url": "Аудио (ссылка)",
+          "audio_kind": "Формат аудио",
+          "synth": "Синтезатор",
+          "category": "Категория",
+          "status": "Статус"
+        },
+        "answers": {
+          "id": "ID",
+          "question_id": "Вопрос (ID)",
+          "user_id": "Автор (ID)",
+          "waveform_data": "Форма волны (JSON)",
+          "markers": "Маркеры (JSON)",
+          "links": "Ссылки (JSON)",
+          "tags": "Теги (JSON)",
+          "is_solution": "Отмечен решением",
+          "awarded_rep": "Начислен рейтинг",
+          "likes_count": "Лайков",
+          "created_at": "Создан",
+          "edited_at": "Отредактирован",
+          "content": "Текст",
+          "audio_url": "Аудио (ссылка)",
+          "audio_kind": "Формат аудио",
+          "preset_url": "Пресет (ссылка)",
+          "preset_name": "Пресет (название)",
+          "sound_type": "Тип звука",
+          "difficulty": "Сложность"
+        },
+        "subscriptions": {
+          "created_at": "Создана",
+          "user_id": "Пользователь (ID)",
+          "target_type": "Тип цели",
+          "target_id": "Цель"
+        },
+        "profiles": {
+          "purged_answers_count": "Зачищено ответов",
+          "open_to_collab": "Открыт к коллаборациям",
+          "contact": "Контакты (JSON)",
+          "contact_consent": "Согласие на публикацию контактов",
+          "donate_methods": "Способы приёма донатов (JSON)",
+          "is_admin": "Администратор",
+          "created_at": "Создан",
+          "id": "ID",
+          "links": "Ссылки (JSON)",
+          "rating": "Рейтинг",
+          "solutions_count": "Решений засчитано",
+          "username": "Ник",
+          "avatar_url": "Аватар (ссылка)",
+          "bio": "О себе",
+          "cover_style": "Стиль обложки"
+        },
+        "synth_catalog": {
+          "added_by": "Добавил (ID)",
+          "created_at": "Добавлен",
+          "name": "Название"
+        },
+        "owner_config": {
+          "id": "ID",
+          "owner_email": "E-mail владельца"
+        },
+        "daw_catalog": {
+          "created_at": "Добавлена",
+          "name": "Название"
+        },
+        "user_software": {
+          "user_id": "Пользователь (ID)",
+          "software_name": "Программа"
+        },
+        "comments": {
+          "id": "ID",
+          "answer_id": "Ответ (ID)",
+          "user_id": "Автор (ID)",
+          "created_at": "Создан",
+          "edited_at": "Отредактирован",
+          "content": "Текст"
+        },
+        "messages": {
+          "id": "ID",
+          "sender_id": "Отправитель (ID)",
+          "recipient_id": "Получатель (ID)",
+          "ref": "Ссылка-вложение (JSON)",
+          "read": "Прочитано",
+          "reactions": "Реакции (JSON)",
+          "created_at": "Отправлено",
+          "edited_at": "Отредактировано",
+          "content": "Текст"
+        },
+        "user_arsenal": {
+          "user_id": "Пользователь (ID)",
+          "item_name": "Позиция"
+        },
+        "favorites": {
+          "user_id": "Пользователь (ID)",
+          "question_id": "Вопрос (ID)",
+          "created_at": "Добавлен",
+          "status": "Статус"
+        },
+        "users": {
+          "id": "ID",
+          "created_at": "Дата регистрации",
+          "email": "E-mail"
+        },
+        "donations": {
+          "id": "ID",
+          "recipient_user_id": "Получатель (ID)",
+          "donor_id": "Донор (ID)",
+          "amount": "Сумма",
+          "confirmed_at": "Подтверждён",
+          "created_at": "Создан",
+          "currency": "Валюта",
+          "message": "Сообщение",
+          "kind": "Способ",
+          "status": "Статус"
+        },
+        "reports": {
+          "id": "ID",
+          "reporter_id": "Заявитель (ID)",
+          "target_id": "Цель (ID)",
+          "created_at": "Создана",
+          "resolved_at": "Решена",
+          "target_type": "Тип цели",
+          "reason": "Причина",
+          "note": "Комментарий заявителя",
+          "status": "Статус",
+          "moderator_note": "Решение модератора"
+        },
+        "likes": {
+          "user_id": "Пользователь (ID)",
+          "target_id": "Цель (ID)",
+          "created_at": "Создан",
+          "target_type": "Тип цели"
+        },
+        "notifications": {
+          "id": "ID",
+          "user_id": "Пользователь (ID)",
+          "payload": "Данные (JSON)",
+          "read": "Прочитано",
+          "created_at": "Создано",
+          "type": "Тип"
+        },
+        "ideas": {
+          "id": "ID",
+          "author_id": "Автор (ID)",
+          "dev_reply_at": "Дата ответа",
+          "created_at": "Создана",
+          "title": "Заголовок",
+          "body": "Текст",
+          "status": "Статус",
+          "dev_reply": "Ответ разработчика"
+        },
+        "idea_votes": {
+          "idea_id": "Идея (ID)",
+          "user_id": "Пользователь (ID)",
+          "created_at": "Отдан"
+        },
+        "achievements": {
+          "user_id": "Пользователь (ID)",
+          "created_at": "Выдано",
+          "achievement_type": "Тип достижения"
+        }
+      }
+    }
   }
 }

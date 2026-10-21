@@ -26,6 +26,7 @@ import { renderMarketplace } from './marketplace.mjs';
 import { renderPremium } from './premium.mjs';
 import { renderAffiliate } from './affiliate.mjs';
 import { renderModeration } from './moderation.mjs';
+import { renderAdminDb } from './admin-db.mjs';
 import { renderIdeas } from './ideas.mjs';
 
 async function boot() {
@@ -60,6 +61,8 @@ async function boot() {
   route('/affiliate', renderAffiliate);
   // Модерация жалоб — доступна только админам (profiles.is_admin)
   route('/moderation', renderModeration);
+  // Заход 50: админ-просмотрщик БД (guard внутри, как /moderation)
+  route('/admin', renderAdminDb);
   route('/ideas', renderIdeas);
   // Справка: FAQ + запуск режима «что делает кнопка?» и тура
   route('/help', renderHelpPage);

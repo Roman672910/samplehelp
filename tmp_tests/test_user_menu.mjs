@@ -68,6 +68,7 @@ await tick43();
 let menu43 = openMenu43();
 ok(!!document.querySelector('#btn-user-menu .admin-badge'), 'админ: бейдж 🛡 на аватарке в шапке (заход 44: вместо строки в меню);');
 ok(!menu43.querySelector('.role-note'), 'строки role-note в меню больше нет');
+ok(!!menu43.querySelector('[data-act="admindb"]'), 'заход 50: у админа в меню пункт «🗄 Данные» (data-act=admindb)');
 closeMenu43();
 const u43 = sb43.setDemoRole(false);
 ok(!!u43 && u43.is_admin === false, 'setDemoRole(false) вернул пользователя без админства');
@@ -77,6 +78,7 @@ ok((await sb43.fetchProfile('u-demo')).is_admin === false, 'строка дем�
 menu43 = openMenu43();
 ok(!document.querySelector('#btn-user-menu .admin-badge'), 'обычный пользователь: бейджа на аватарке нет');
 ok(!menu43.querySelector('[data-act="moderation"]'), 'и пункта «Модерация» нет');
+ok(!menu43.querySelector('[data-act="admindb"]'), 'заход 50: у обычного пользователя пункта «Данные» нет');
 closeMenu43();
 const gbox = document.createElement('div');
 document.body.appendChild(gbox);

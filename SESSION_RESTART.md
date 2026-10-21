@@ -32,17 +32,17 @@ cd backend && npm install
 ## 2. Проверки «всё цело» (зелёные числа на 2026-10-16, заход 48 D1)
 ```bash
 npm run check                          # ✓ 36 модулей
-node tmp_tests/check_keys.cjs          # ✓ 511 ключей i18n (ru-only)
-node tmp_tests/check_help_catalog.cjs  # ✓ каталог справки 113
-for t in tmp_tests/test_*.mjs; do node "$t" >/dev/null 2>&1 || echo "✗ $t"; done   # 37/37
+node tmp_tests/check_keys.cjs          # ✓ 525 ключей i18n (ru-only)
+node tmp_tests/check_help_catalog.cjs  # ✓ каталог справки 118
+for t in tmp_tests/test_*.mjs; do node "$t" >/dev/null 2>&1 || echo "✗ $t"; done   # 38/38
 # backend (нужен PostgreSQL; в песочнице: apt-get update && apt-get install -y postgresql;
 #   pg_ctlcluster <ver> main start; create role samplehelp login password 'samplehelp_dev_pwd' createdb;
 #   create database sh_test owner samplehelp):
 cd backend && TEST_DATABASE_URL=postgres://samplehelp:samplehelp_dev_pwd@127.0.0.1:5432/sh_test npm test
-#   → 60 (Фаза A) + 19 (B) + 54 (C) ✓
+#   → 60 (A) + 19 (B) + 54 (C) + 24 (заход 50) ✓
 DATABASE_URL=postgres://samplehelp:samplehelp_dev_pwd@127.0.0.1:5432/sh_dev node src/migrate.js
 STATIC_DIR=../public PORT=3100 node src/app.js &   # и в другом процессе:
-node tools/phase_c_smoke.mjs                       # → 70 ✓ (живой прогон api.mjs)
+node tools/phase_c_smoke.mjs                       # → 71 ✓ (живой прогон api.mjs)
 ```
 
 ## 3. Где сейчас проект (статус перезахода 48: Supabase → свой стек)
@@ -54,8 +54,15 @@ node tools/phase_c_smoke.mjs                       # → 70 ✓ (живой пр
   флаг `USE_LOCAL_BACKEND` (+`API_URL`) в `public/js/config.mjs`; LOCAL — fetch+JWT
   (localStorage `samplehelp_api_tokens`, авто-refresh на 401 single-flight) +
   Socket.IO; демо — делегирование в `supabase.mjs` (демо-слой НЕ тронут, это
-  страховка и среда всех 37 тестов). 14 модулей импортируют api.mjs.
+  страховка и среда всех 38 тестов). 14 модулей импортируют api.mjs.
   Фикс C1: STORAGE_DIR на Windows (fileURLToPath) — загрузка аудио работала в 500.
+- **Заход 50** ✅ экран «🗄 Данные» `/admin` (админ-просмотрщик БД, строго чтение):
+  backend `routes/admin.js` (GET /api/admin/tables|:name/meta|:name/rows, requireAdmin,
+  белый список из information_schema, refresh/reset_tokens и password_hash не выезжают,
+  валидация limit/offset/order_by, rate-limit) + фронт `public/js/admin-db.mjs`
+  (список таблиц, грид с сортировкой/пагинацией 50/100, карточка строки, guard как
+  /moderation, демо — заглушка) + пункт меню «🗄 Данные» у админа; тесты run_d.mjs (24)
+  и test_admin_db.mjs (30), смоук +1 (403 не-админу).
 - **Фаза D1** ✅ ранбук `DEPLOY_MINIPC.md` + комплект `deploy/minipc/` (bootstrap/
   install/services/tunnel/backup, nginx+systemd+cloudflared-конфиги).
 - **Фаза D2–D5** ⏳ ЖДЁМ МИНИ-ПК: установка на железо → домен+Cloudflare Tunnel+CDN
@@ -66,7 +73,7 @@ node tools/phase_c_smoke.mjs                       # → 70 ✓ (живой пр
 
 ## 4. Жёсткие инварианты (сломаешь — тесты/демо умрут)
 1. **`USE_LOCAL_BACKEND: false` в репозитории.** Тесты фронта стабят fetch и
-   бросаются на неожиданный URL; при true все 37 файлов пойдут в сеть. Флаг в true
+   бросаются на неожиданный URL; при true все 38 файлов пойдут в сеть. Флаг в true
    ставит только заказчик у себя (или смоук-скрипты, мутируя CONFIG в памяти).
 2. `IS_DEMO = !(USE_LOCAL_BACKEND && API_URL)`; демо-ветка supabase.mjs ветвится
    по IS_DEMO — не менять семантику. `supabase.mjs` не удалять (демо-слой+откат).
@@ -74,7 +81,7 @@ node tools/phase_c_smoke.mjs                       # → 70 ✓ (живой пр
    на нём стоит логика moderation.mjs и тесты.
 4. Новые строки UI — только через `t()`/`tp()` и только в **ru**; каждый новый
    интерактивный элемент — `data-help="ключ"` + `help.items.<ключ>.title/desc`;
-   после правок гонять check_keys + check_help_catalog (511/113 — обновлять осознанно).
+   после правок гонять check_keys + check_help_catalog (525/118 — обновлять осознанно).
 5. `DEMO_DB_VERSION` (сейчас 16) повышать при изменении структуры демо-сидов
    (механизм мягкого пересида migrateDemo переносит пользовательский контент).
 6. Регламент захода: baseline-дамп в `rollbacks/` ПЕРЕД правками → работа →
@@ -104,7 +111,7 @@ node tools/phase_c_smoke.mjs                       # → 70 ✓ (живой пр
   notify/migrate + routes/{auth,profiles,questions,social,messages,misc}.js;
   `backend/src/schema.sql` — ЖИВАЯ схема БД (supabase/ — архив).
 - `backend/tests/run{,_b,_c}.mjs`, `backend/tools/phase_c_smoke.mjs` — проверки.
-- `tmp_tests/` — 37 фронт-тестов + check_keys/check_help_catalog + README.
+- `tmp_tests/` — 38 фронт-тестов + check_keys/check_help_catalog + README.
 - `README.md` (корень) — быстрый старт; `backend/README.md` — запуск/контракты/
   troubleshooting (Windows-разделы для заказчика).
 

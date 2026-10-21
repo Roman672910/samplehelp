@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Превью: «🗄 Данные» по-русски (заход 52, PLAN_REAL_MODE T1)</title>
+<style>
+  /* Значения — один в один из public/css/style.css (боевая тема) */
+  :root {
+    --bg-main: #0d0d0f;
+    --bg-card: #161619;
+    --bg-card-hover: #1c1c20;
+    --text-primary: #e8e8ea;
+    --text-secondary: #b9b9bf;
+    --text-muted: #6b6b72;
+    --border-subtle: rgba(184, 115, 51, 0.18);
+    --copper-1: #b87333;
+    --copper-2: #cd7f32;
+    --copper-3: #ff8c00;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+    --font-main: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --header-h: 64px;
+    --transition: 0.18s ease;
+  }
+  body { margin: 0; background: var(--bg-main); color: var(--text-primary); font-family: var(--font-main); padding: 28px 20px 48px; }
+  h1 { font-size: 19px; margin: 0 0 6px; }
+  .note { color: var(--text-muted); font-size: 13px; margin: 0 0 26px; max-width: 760px; line-height: 1.55; }
+  .shot { margin: 0 0 30px; }
+  .shot h2 { font-size: 12.5px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 10px; font-family: var(--font-mono); }
+  .frame { border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; background: rgba(13,13,15,.88); padding: 16px; }
+  .card { background: var(--bg-card); border: 1px var(--border-subtle) solid; border-radius: 12px; }
+
+  /* ---- боевые стили экрана (заход 50 + правки 52) ---- */
+  .admin-db { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 18px; align-items: start; }
+  .admin-db-side { padding: 12px; }
+  .admin-db-side-head { display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 650; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); padding: 2px 4px 10px; }
+  .adb-table-btn { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; padding: 7px 9px; border: 1px solid transparent; border-radius: 8px; background: none; color: var(--text-secondary); font-family: var(--font-mono); font-size: 12px; cursor: pointer; text-align: left; transition: background var(--transition), border-color var(--transition), color var(--transition); }
+  .adb-table-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+  .adb-table-btn.active { border-color: var(--copper-1); color: var(--copper-3); background: rgba(184, 115, 51, 0.08); }
+  .adb-table-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-main); }
+  .adb-table-count { color: var(--text-muted); font-size: 10.5px; flex-shrink: 0; }
+  /* Заход 52: русские имена + оригиналы-подстрочники */
+  .adb-table-cell { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .adb-table-orig { font-family: var(--font-mono); font-size: 9.5px; color: var(--text-muted); opacity: .8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .adb-orig { font-family: var(--font-mono); font-size: 11px; font-weight: 400; color: var(--text-muted); margin-left: 6px; }
+  .admin-db-main { padding: 14px 16px 12px; min-width: 0; }
+  .admin-db-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .admin-db-name { font-family: var(--font-main); font-size: 15px; margin: 0; color: var(--text-primary); }
+  .adb-total { color: var(--text-muted); font-size: 12px; font-family: var(--font-mono); }
+  .admin-db-scroll { overflow-x: auto; border: 1px solid var(--border-subtle); border-radius: 10px; }
+  .adb-grid { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .adb-grid thead th { background: var(--bg-card); border-bottom: 1px solid var(--border-subtle); padding: 0; text-align: left; }
+  .adb-th { display: flex; flex-direction: column; gap: 1px; width: 100%; padding: 8px 10px; background: none; border: none; cursor: pointer; color: var(--text-primary); font-size: 12px; font-weight: 650; text-align: left; font-family: var(--font-main); }
+  .adb-th:hover { background: var(--bg-card-hover); }
+  .adb-th .adb-type { font-family: var(--font-mono); font-size: 10px; font-weight: 400; color: var(--text-muted); }
+  .adb-th .adb-dir { color: var(--copper-3); font-size: 10px; }
+  .adb-grid tbody td { padding: 7px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.045); vertical-align: top; font-family: var(--font-mono); font-size: 11.5px; color: var(--text-secondary); max-width: 340px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .adb-grid tbody tr:last-child td { border-bottom: none; }
+  .adb-row { cursor: pointer; }
+  .adb-row:hover td { background: rgba(184, 115, 51, 0.06); }
+  .adb-null { color: var(--text-muted); }
+  .adb-bool.on { color: #6fd58c; }
+  .adb-bool.off { color: var(--text-muted); }
+  .adb-json { color: var(--text-muted); border-bottom: 1px dashed rgba(107, 107, 114, 0.5); cursor: help; }
+  .adb-num { color: var(--copper-2); }
+  .adb-time { color: var(--text-muted); }
+  .adb-uuid { color: var(--text-muted); }
+  .adb-url { color: #7fb3d5; }
+  .adb-text { }
+  .adb-pager { display: flex; align-items: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+  .adb-page { color: var(--text-muted); font-family: var(--font-mono); font-size: 11.5px; }
+  .btn { background: none; border: 1px solid var(--border-subtle); color: var(--text-secondary); border-radius: 8px; cursor: pointer; }
+  .btn-sm { padding: 3px 9px; font-size: 12px; }
+  .adb-size { display: flex; align-items: center; gap: 6px; margin-left: auto; color: var(--text-muted); font-size: 11.5px; }
+  .adb-size select { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 3px 6px; font-family: var(--font-mono); font-size: 11.5px; }
+  .adb-card { margin: 0; display: flex; flex-direction: column; gap: 0; }
+  .adb-card-row { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 12px; padding: 8px 2px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+  .adb-card-row:last-child { border-bottom: none; }
+  .adb-card-row dt { font-family: var(--font-main); font-size: 12px; color: var(--text-primary); display: flex; flex-direction: column; gap: 1px; }
+  .adb-card-row dt .adb-type { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+  .adb-card-row dd { margin: 0; font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); overflow-wrap: anywhere; }
+  .adb-pre { margin: 0; padding: 8px 10px; background: var(--bg-main); border: 1px solid var(--border-subtle); border-radius: 8px; font-family: var(--font-mono); font-size: 11px; max-height: 260px; overflow: auto; white-space: pre-wrap; }
+  .modal-title { font-size: 15px; font-weight: 650; margin: 0 0 12px; }
+  .hint { color: var(--text-muted); font-size: 12px; margin: 8px 0 0; line-height: 1.5; }
+  kbd { font-family: var(--font-mono); font-size: 10.5px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 1px 5px; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<h1>«🗄 Данные» — русские названия таблиц и колонок</h1>
+<p class="note">
+  Заход 52 (PLAN_REAL_MODE, T1). Решения опроса 2026-10-21: русское имя +
+  оригинал в тултипе; значения ячеек не переводятся. Словарь —
+  <kbd>admin_db.schema.*</kbd> в ru.json (20 таблиц / 136 колонок),
+  неизвестное имя показывается оригиналом (fallback). Статичный макет;
+  стили — из боевого <kbd>public/css/style.css</kbd>.
+</p>
+
+<div class="shot">
+  <h2>1. Список таблиц + грид (наведите на имя — тултип с оригиналом)</h2>
+  <div class="frame">
+    <div class="admin-db">
+      <aside class="card admin-db-side">
+        <div class="admin-db-side-head"><span>Таблицы</span><button type="button" class="btn btn-sm" title="Обновить">⟳</button></div>
+        <button type="button" class="adb-table-btn active" title="questions">
+          <span class="adb-table-cell"><span class="adb-table-name">Вопросы</span><span class="adb-table-orig">questions</span></span>
+          <span class="adb-table-count">≈118</span>
+        </button>
+        <button type="button" class="adb-table-btn" title="profiles">
+          <span class="adb-table-cell"><span class="adb-table-name">Профили</span><span class="adb-table-orig">profiles</span></span>
+          <span class="adb-table-count">≈42</span>
+        </button>
+        <button type="button" class="adb-table-btn" title="users">
+          <span class="adb-table-cell"><span class="adb-table-name">Пользователи</span><span class="adb-table-orig">users</span></span>
+          <span class="adb-table-count">≈42</span>
+        </button>
+        <button type="button" class="adb-table-btn" title="donations">
+          <span class="adb-table-cell"><span class="adb-table-name">Донаты</span><span class="adb-table-orig">donations</span></span>
+          <span class="adb-table-count">≈17</span>
+        </button>
+        <button type="button" class="adb-table-btn" title="mystery_tbl">
+          <span class="adb-table-cell"><span class="adb-table-name">mystery_tbl</span></span>
+          <span class="adb-table-count">≈0</span>
+        </button>
+      </aside>
+      <section class="card admin-db-main">
+        <div class="admin-db-head">
+          <h2 class="admin-db-name" title="questions">Вопросы <span class="adb-orig">questions</span></h2>
+          <span class="adb-total">Строк: 118</span>
+        </div>
+        <div class="admin-db-scroll">
+          <table class="adb-grid">
+            <thead><tr>
+              <th><button type="button" class="adb-th" title="id — Первичный ключ"><span class="adb-col">ID 🔑</span><span class="adb-type">uuid</span></button></th>
+              <th><button type="button" class="adb-th" title="title — Клик — сортировка по колонке (asc/desc)"><span class="adb-col">Заголовок</span><span class="adb-type">text</span><span class="adb-dir">▲</span></button></th>
+              <th><button type="button" class="adb-th" title="synth — Клик — сортировка по колонке (asc/desc)"><span class="adb-col">Синтезатор</span><span class="adb-type">text</span></button></th>
+              <th><button type="button" class="adb-th" title="likes_count — Клик — сортировка по колонке (asc/desc)"><span class="adb-col">Лайков</span><span class="adb-type">integer</span></button></th>
+              <th><button type="button" class="adb-th" title="markers — Клик — сортировка по колонке (asc/desc)"><span class="adb-col">Маркеры (JSON)</span><span class="adb-type">jsonb</span></button></th>
+              <th><button type="button" class="adb-th" title="created_at — Клик — сортировка по колонке (asc/desc)"><span class="adb-col">Создан</span><span class="adb-type">timestamptz</span></button></th>
+            </tr></thead>
+            <tbody>
+              <tr class="adb-row">
+                <td><span class="adb-uuid" title="3f9a1c22-8b41-4d0e-9a77-0c1d2e3f4a55">3f9a1c22…</span></td>
+                <td><span class="adb-text">Как сделать «стеклянный» лид</span></td>
+                <td><span class="adb-text">Serum</span></td>
+                <td><span class="adb-num">12</span></td>
+                <td><span class="adb-json" title='[{"time":2,"note":"сweep"}]'>[{"time":2,"note":"sweep"}]</span></td>
+                <td><span class="adb-time" title="2026-10-21T08:12:00Z">3 ч назад</span></td>
+              </tr>
+              <tr class="adb-row">
+                <td><span class="adb-uuid" title="8b7c6d55-1a29-4f33-8e11-9a0b1c2d3e44">8b7c6d55…</span></td>
+                <td><span class="adb-text">Бас-дроп как у Noisia</span></td>
+                <td><span class="adb-text">Phase Plant</span></td>
+                <td><span class="adb-num">7</span></td>
+                <td><span class="adb-null">—</span></td>
+                <td><span class="adb-time" title="2026-10-20T19:40:00Z">15 ч назад</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="adb-pager">
+          <button type="button" class="btn btn-sm" disabled>‹</button>
+          <span class="adb-page">1–50 из 118</span>
+          <button type="button" class="btn btn-sm">›</button>
+          <label class="adb-size"><select><option>50</option><option>100</option></select><span>строк на странице</span></label>
+        </div>
+      </section>
+    </div>
+    <p class="hint">Последняя строка списка — <kbd>mystery_tbl</kbd>: таблицы без ключа в словаре показываются оригиналом, без подстрочника (fallback).</p>
+  </div>
+</div>
+
+<div class="shot">
+  <h2>2. Карточка строки (модалка)</h2>
+  <div class="frame" style="max-width:640px">
+    <p class="modal-title">Строка: Вопросы</p>
+    <dl class="adb-card">
+      <div class="adb-card-row"><dt title="id">ID 🔑<span class="adb-type">uuid</span></dt><dd>3f9a1c22-8b41-4d0e-9a77-0c1d2e3f4a55</dd></div>
+      <div class="adb-card-row"><dt title="title">Заголовок<span class="adb-type">text</span></dt><dd>Как сделать «стеклянный» лид</dd></div>
+      <div class="adb-card-row"><dt title="status">Статус<span class="adb-type">text</span></dt><dd>published</dd></div>
+      <div class="adb-card-row"><dt title="markers">Маркеры (JSON)<span class="adb-type">jsonb</span></dt><dd><pre class="adb-pre">[
+  { "time": 2, "note": "sweep" }
+]</pre></dd></div>
+    </dl>
+    <p class="hint">Значения — без перевода (решение опроса): статусы и прочее остаются как в БД.</p>
+  </div>
+</div>
+
+</body>
+</html>

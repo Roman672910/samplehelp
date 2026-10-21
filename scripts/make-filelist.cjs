@@ -66,6 +66,8 @@ let filesCount = 0, dirsCount = 0, binCount = 0;
 function walk(dir) {
   const ents = fs.readdirSync(dir, { withFileTypes: true }).filter((e) => {
     if (e.isDirectory() && SKIP_DIRS.has(e.name)) return false;
+    // Рантайм-артефакты backend (загрузки dev/тестов) в дамп кода не входят
+    if (e.isDirectory() && /^storage(-tmp.*)?$/.test(e.name) && dir.includes('backend')) return false;
     if (e.isFile() && path.resolve(dir, e.name) === OUT) return false; // сам дамп
     // Дамп внутри проекта и откатные снимки не включаются: дамп не должен
     // носить сам себя (квадратичный рост при перегенерации), а baseline —

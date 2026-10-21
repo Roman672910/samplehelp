@@ -126,6 +126,8 @@ npm test    # INTEGRATION: живой PostgreSQL (sh_test), 60+19+51 прове�
             # Фаза C — справочники, агрегат профиля, пакетные ответы, edited_at,
             #   favorites (on/status), likes/status, ref-карточки, donations/count,
             #   achievements, logout, /files, CORS.
+            # Заход 50 — админ-просмотрщик: права 401/403, скрытые таблицы/колонки
+            #   (скан всех ответов), пагинация без пересечений, валидации 400.
 node tools/phase_c_smoke.mjs   # ЖИВОЙ смоук: api.mjs против сервера на :3100 (70 проверок)
 ```
 Требует локальный PG и роль с CREATEDB (см. create role в журнале захода 48).
@@ -167,6 +169,16 @@ node tools/phase_c_smoke.mjs   # ЖИВОЙ смоук: api.mjs против с�
 - realtime: `typing` несёт username из профиля (не email).
 - Схема: `edited_at` у questions/answers/comments/messages, `favorites.status`,
   сиды synth_catalog/daw_catalog (всё идемпотентно — migrate.js).
+
+## Админ-просмотрщик БД (заход 50, экран /admin на фронте)
+`GET /api/admin/tables` — таблицы public (имя + оценка строк; refresh_tokens/
+reset_tokens скрыты); `GET /api/admin/tables/:name/meta` — колонки (имя, тип,
+nullable, PK; users.password_hash исключён) + точное число строк;
+`GET /api/admin/tables/:name/rows?limit&offset&order_by&dir` — страница строк
+(ТОЛЬКО видимые колонки). Всё под requireAdmin + rate-limit 60/мин. SQL от
+клиента не принимается: имя таблицы — белый список information_schema (иначе
+404), order_by — только колонка таблицы (400), limit 1..100 / offset ≥0 (400).
+Строго чтение: правки/удаления — только штатными админ-эндпойнтами (/reports…).
 
 ## Фазы (спека ../PLAN_BACKEND_REWRITE.md)
 A ✅ ядро (этот каталог); B ✅ Socket.IO + cron жизненного цикла;
